@@ -8,26 +8,26 @@
 
 ### Test Connectivity
 
-`GET https://openapi.xxx.com/api/v1/ping`
+`GET https://openapi.xxx.com/sapi/v1/ping`
 
 Test the connectivity of the REST API.
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/ping
+GET https://openapi.xxx.com/sapi/v1/ping
 ```
 
 ### Check Server Time
 
-`GET https://openapi.xxx.com/api/v1/time`
+`GET https://openapi.xxx.com/sapi/v1/time`
 
 Check Server Time
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/time
+GET https://openapi.xxx.com/sapi/v1/time
 ```
 
 > response example
@@ -39,7 +39,7 @@ GET https://openapi.xxx.com/api/v1/time
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter  | Type   | Example               | Description      |
 | :----------| :------| :---------------------| :----------------|
@@ -48,14 +48,14 @@ GET https://openapi.xxx.com/api/v1/time
 
 ### Symbol Pair List 
 
-`GET https://openapi.xxx.com/api/v1/symbols`
+`GET https://openapi.xxx.com/sapi/v1/symbols`
 
 The supported symbol pair collection which in the exchange.
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/symbols
+GET https://openapi.xxx.com/sapi/v1/symbols
 ```
 
 > response example
@@ -122,15 +122,15 @@ GET https://openapi.xxx.com/api/v1/symbols
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter         | Type       | Example   | Description                                |
 | :-----------------| :----------| :---------| :------------------------------------------|
 | symbol            | string     | `btcusdt` | `Lowercase` symbol name                    |
 | baseAsset         | string     | `BTC`     | `Base` asset for the symbol                |
 | quoteAsset        | string     | `USDT`    | `Quote` asset for the symbol               |
-| pricePrecision    | integer    | `3`       | Price accuracy                             |
-| quantityPrecision | integer    | `8`       | Quantity accuracy                          |
+| pricePrecision    | integer    | `6`       | Price accuracy                             |
+| quantityPrecision | integer    | `3`       | Quantity accuracy                          |
 | limitVolumeMin    | BigDecimal | `0.0001`  | Minimum quantity limit for limit order     |
 | marketBuyMin      | BigDecimal | `0.0001`  | Minimum purchase quantity for market order |
 | marketSellMin     | BigDecimal | `0.0001`  | Minimum selling quantity for market orders |
@@ -144,17 +144,17 @@ GET https://openapi.xxx.com/api/v1/symbols
 
 ### Depth
 
-`GET https://openapi.xxx.com/api/v1/depth`
+`GET https://openapi.xxx.com/sapi/v1/depth`
 
 Market detpth data
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/depth?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/depth?symbol=BTCUSDT&limit=100
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type    | Description                            |
 | :---------------------------------| :-------| :--------------------------------------|
@@ -189,7 +189,7 @@ GET https://openapi.xxx.com/api/v1/depth?symbol=BTCUSDT&limit=100
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Paramter | Type  | Example                   | Description                                                                                                                                                                        |
 | :--------| :-----| :-------------------------| :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -201,17 +201,17 @@ The bid and ask information represents all the prices in the order book along wi
 
 ### 24hrs Ticker
 
-`GET https://openapi.xxx.com/api/v1/ticker`
+`GET https://openapi.xxx.com/sapi/v1/ticker`
 
 24-hour price change data
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
+GET https://openapi.xxx.com/sapi/v1/ticker?symbol=BTCUSDT
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type   | Description                            |
 | :---------------------------------| :------| :--------------------------------------|
@@ -233,7 +233,7 @@ GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type   | Example         | Description                                                                                      |
 | :---------| :------| :---------------| :------------------------------------------------------------------------------------------------|
@@ -249,17 +249,17 @@ GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
 
 ### Recent Trade List
 
-`GET https://openapi.xxx.com/api/v1/trades`
+`GET https://openapi.xxx.com/sapi/v1/trades`
 
 Market recent trade
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/trades?symbol=BTCUSDT&limit=100
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type   | Description                            |
 | :---------------------------------| :------| :--------------------------------------|
@@ -285,7 +285,7 @@ GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
 ]
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type   | Example                | Description         |
 | :---------| :------| :----------------------| :-------------------|
@@ -296,17 +296,17 @@ GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
 
 ### K-Line/Candlestick Data
 
-`GET https://openapi.xxx.com/api/v1/klines`
+`GET https://openapi.xxx.com/sapi/v1/klines`
 
 K-Line/Candlestick data
 
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
+GET https://openapi.xxx.com/sapi/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                           | Type    | Description                                                                                                           |
 | :-----------------------------------| :-------| :---------------------------------------------------------------------------------------------------------------------|
@@ -345,7 +345,7 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 ]
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type  | Example         | Description     |
 | :---------| :-----| :---------------| :---------------|
@@ -364,7 +364,7 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 
 ### Create New Order
 
-`POST https://openapi.xxx.com/api/v1/order`
+`POST https://openapi.xxx.com/sapi/v1/order`
 
 **Rate Limit: 100 times/2s**
 
@@ -379,7 +379,7 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 > request example
 
 ```http
-POST https://openapi.xxx.com/api/v1/order
+POST https://openapi.xxx.com/sapi/v1/order
 
 body
 {
@@ -392,7 +392,7 @@ body
 }
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type   | Description                                                                                                        |
 | :---------------------------------| :------| :------------------------------------------------------------------------------------------------------------------|
@@ -422,12 +422,12 @@ body
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter     | Type    | Example               | Description                                                                                                      |
 | :-------------| :-------| :---------------------| :----------------------------------------------------------------------------------------------------------------|
 | orderId       | long    | `2012274607240433332` | Order ID(system generated)                                                                                       |
-| clientOrderId | string  | `213443`              | Order ID(sent by user)                                                                                           |
+| clientOrderId | string  | `213443`              | Order ID(user generated)                                                                                         |
 | symbol        | string  | `BTCUSDT`             | `Uppercase` symbol name                                                                                          |
 | transactTime  | integer | `1704959985403`       | The time of order placed                                                                                         |
 | price         | float   | `47651.29`            | Order price                                                                                                      |
@@ -439,7 +439,7 @@ body
 
 ### Test New Order
 
-`POST https://openapi.xxx.com/api/v1/order/test`
+`POST https://openapi.xxx.com/sapi/v1/order/test`
 
 Create and validate a new order but do not send the order into the matching engine.
 
@@ -454,7 +454,7 @@ Create and validate a new order but do not send the order into the matching engi
 > request example
 
 ```http
-POST https://openapi.xxx.com/api/v1/order/test
+POST https://openapi.xxx.com/sapi/v1/order/test
 
 body
 {
@@ -466,7 +466,7 @@ body
     "newClientOrderId": "111000001111"
 }
 ```
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type   | Description                                                                                               |
 | :---------------------------------| :------| :---------------------------------------------------------------------------------------------------------|
@@ -485,7 +485,7 @@ body
 
 ### Batch Orders
 
-`POST https://openapi.xxx.com/api/v1/batchOrders`
+`POST https://openapi.xxx.com/sapi/v1/batchOrders`
 
 **Rate Limit: 50 times/2s Up to 10 orders in one batch order request**
 
@@ -500,7 +500,7 @@ body
 > request example
 
 ```http
-POST https://openapi.xxx.com/api/v1/batchOrders
+POST https://openapi.xxx.com/sapi/v1/batchOrders
 
 body
 {
@@ -522,7 +522,7 @@ body
 }
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter | Type   | Example        | Description             |
 | :---------| :------| :--------------| :-----------------------|
@@ -544,7 +544,7 @@ body
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type  | Example | Description       |
 | :---------| :-----| :-------| :-----------------|
@@ -553,7 +553,7 @@ body
 
 ### Query Order
 
-`GET https://openapi.xxx.com/api/v1/order`
+`GET https://openapi.xxx.com/sapi/v1/order`
 
 **Rate Limit: 20 times/2s**
 
@@ -568,10 +568,10 @@ body
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
+GET https://openapi.xxx.com/sapi/v1/order?symbol=ethusdt&orderID=111000111
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                          | Type   | Description                            |
 | :----------------------------------| :------| :--------------------------------------|
@@ -595,12 +595,12 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter     | Type   | Example              | Description                                                                                                      |
 | :-------------| :------| :--------------------| :----------------------------------------------------------------------------------------------------------------|
 | orderId       | long   | `150695552109032492` | Order ID (system generated)                                                                                      |
-| clientOrderId | string | `213443`             | Order ID (sent by user)                                                                                          |
+| clientOrderId | string | `213443`             | Order ID (user generated)                                                                                        |
 | symbol        | string | `ethusdt`            | `Lowercase` symbol name                                                                                          |
 | price         | float  | `4765.29`            | Order price                                                                                                      |
 | origQty       | float  | `1.01`               | Order volume                                                                                                     |
@@ -613,7 +613,7 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 
 ### Cancel Order
 
-`POST https://openapi.xxx.com/api/v1/cancel`
+`POST https://openapi.xxx.com/sapi/v1/cancel`
 
 **Rate Limit: 100 times/2s**
 
@@ -628,7 +628,8 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 > request example
 
 ```http
-POST https://openapi.xxx.com/api/v1/cancel
+POST https://openapi.xxx.com/sapi/v1/cancel
+
 body
 {
     "symbol": "ethusdt",
@@ -636,7 +637,7 @@ body
 }
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                          | Type   | Description                            |
 | :----------------------------------| :------| :--------------------------------------|
@@ -655,7 +656,7 @@ body
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type   | Example               | Description                     |
 | :---------| :------| :---------------------| :-------------------------------|
@@ -665,7 +666,7 @@ body
 
 ### Batch Order Cancellation
 
-`POST https://openapi.xxx.com/api/v1/batchCancel`
+`POST https://openapi.xxx.com/sapi/v1/batchCancel`
 
 **Rate Limit: 50 times/2s  Every batch cancellation request contains at most 10 orders**
 
@@ -680,7 +681,8 @@ body
 > request example
 
 ```http
-POST https://openapi.xxx.com/api/v1/batchCancel
+POST https://openapi.xxx.com/sapi/v1/batchCancel
+
 body
 {
     "symbol": "BTCUSDT",
@@ -688,12 +690,12 @@ body
 }
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                           | Type   | Description                                                                                                            |
 | :-----------------------------------| :------| :----------------------------------------------------------------------------------------------------------------------|
 | symbol<font color="red">\*</font>   | string | `Uppercase` symbol name E.g. `BTCUSDT`                                                                                 |
-| orderIds<font color="red">\*</font> | array  | Collection of order IDs to be canceled. The order id must be of numeric type rather than String type. e.g. `[123,456]` |
+| orderIds<font color="red">\*</font> | array  | Collection of order IDs to be canceled. The order id must be of numeric type rather than String type. E.g. `[123,456]` |
 
 >success response example
 
@@ -718,7 +720,7 @@ body
 
 ### Current Open Orders
 
-`GET https://openapi.xxx.com/api/v1/openOrders`
+`GET https://openapi.xxx.com/sapi/v1/openOrders`
 
 **Rate Limit: 20 times/2s**
 
@@ -730,7 +732,7 @@ body
 | X-CH-APIKEY<font color="red">\*</font> | string  | User's API-key |
 | X-CH-TS<font color="red">\*</font>     | integer | Timestamp      |
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type    | Description                            |
 | :---------------------------------| :-------| :--------------------------------------|
@@ -768,7 +770,7 @@ body
 ]
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter   | Type   | Example              | Description                                                                                                            |
 | :-----------| :------| :--------------------| :----------------------------------------------------------------------------------------------------------------------|
@@ -785,7 +787,7 @@ body
 
 ### Trading Records
 
-`GET https://openapi.xxx.com/api/v1/myTrades`
+`GET https://openapi.xxx.com/sapi/v1/myTrades`
 
 **Rate Limit: 20 times/2s**
 
@@ -801,10 +803,10 @@ body
 > request example
 
 ```http
-GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/myTrades?symbol=BTCUSDT&limit=100
 ```
 
-**Request Parameter**
+**Request Parameters**
 
 | Parameter                         | Type   | Description                            |
 | :---------------------------------| :------| :--------------------------------------|
@@ -852,7 +854,7 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 ]
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type    | Example               | Description                                                     |
 | :---------| :-------| :---------------------| :---------------------------------------------------------------|
@@ -880,7 +882,7 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 
 ### Account Information
 
-`GET https://openapi.xxx.com/api/v1/account`
+`GET https://openapi.xxx.com/sapi/v1/account`
 
 **Rate Limit: 20 times/2s**
 
@@ -916,7 +918,7 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 }
 ```
 
-**Response Parameter**
+**Response Parameters**
 
 | Parameter | Type   | Description                       |
 | :---------| :------| :---------------------------------|

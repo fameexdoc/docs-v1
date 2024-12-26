@@ -6,14 +6,14 @@ The interface below is the interface for obtaining server time. This interface i
 
 ### Check Server Time
 
-`GET https://openapi.fcexapex.pro/api/v1/time`
+`GET https://openapi.xxx.com/sapi/v1/time`
 
 Check Server Time
 
 > request example
 
 ```http
-GET https://openapi.fcexapex.pro/api/v1/time
+GET https://openapi.xxx.com/sapi/v1/time
 ```
 
 > response example
@@ -47,11 +47,11 @@ Interface types are divided into: Public, Market, Trade, Account.
 *   The interfaces under the "Public" and "Market" categories can be accessed without requiring an API key or signature.
 *   "Trade" and "Account" security require API-Key and signature verification before access.
 *   The signature content is related to the parameters. If the parameters are entered incorrectly, the parameter error or null value will be returned.
-*   For interfaces that require signature verification, X-CH-SIGN, X-CH-APIKEY, and X-CH-TS must be added to the header for signature verification. For signature rules and examples, please refer to: [签名示例](https://fameexdoc.github.io/docs-v1/?http#09957702bc) (apiKey and secretKey in this document are virtual values. The real content needs to be obtained by the user in the API management of the front page.)
+*   For interfaces that require signature verification, X-CH-SIGN, X-CH-APIKEY, and X-CH-TS must be added to the header for signature verification. For signature rules and examples, please refer to: [Signature Example](https://fameexdoc.github.io/docs-v1/?http#09957702bc) (apiKey and secretKey in this document are virtual values. The real content needs to be obtained by the user in the API management of the front page.)
 
 ## Return Code Type
 
-Please refer to the document: [返回码类型](https://fameexdoc.github.io/docs-v1/?http#8ec82582cd)
+Please refer to the document: [Return Enums](https://fameexdoc.github.io/docs-v1/?http#8ec82582cd)
 
 ## API Basic Information
 
@@ -112,7 +112,7 @@ HTTP Error Codes
 *   The signature uses the `HMAC SHA256` algorithm. The API-Secret corresponding to the API-KEY is used as the `HMAC SHA256` key.
 *   The request header of `X-CH-SIGN` is based on timestamp + method + requestPath + body string  (+ means string connection) as the operation object.
 *   The value of timestamp is the same as the `X-CH-TS` request header, method is the request method, and the letters are all uppercase: GET/POST.
-*   requestPath is the request interface path. For example: /api/v1/order?orderId=211222334\&symbol=BTCUSDT
+*   requestPath is the request interface path. For example: `sapi/v1/order?symbol=ethusdt&orderID=111000111`
 *   `body` is the string of the request body (post only).
 *   The signature is not case-sensitive.
 
@@ -133,7 +133,7 @@ if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= recvWindow) {
 
 <aside class="notice">Networks may be unstable and unreliable, which can lead to requests taking varying amounts of time to reach the servers. With <code>recvWindow</code>, you can specify that the request must be processed within a certain number of milliseconds or be rejected by the server. It is recommended to use a small <code>recvWindow</code> of 5000 or less!</aside>
 
-## Endpoint Example for POST /api/v1/order/test
+## Endpoint Example for POST /sapi/v1/order/test
 
 Here is a step-by-step example of how to send a valid signed payload from the Linux command line using echo, openssl, and curl.
 
@@ -161,7 +161,7 @@ Here is a step-by-step example of how to send a valid signed payload from the Li
 > HMAC-SHA256 signature
 
 ```shell
-echo -n "1588591856950POST/api/v1/order/test{\"symbol\":\"BTCUSDT\",\"price\":\"9300\",\"volume\":\"1\",\"side\":\"BUY\",\"type\":\"LIMIT\"}" | openssl dgst -sha256 -hmac "902ae3cb34ecee2779aa4d3e1d226686"
+echo -n "1588591856950POST/sapi/v1/order/test{\"symbol\":\"BTCUSDT\",\"price\":\"9300\",\"volume\":\"1\",\"side\":\"BUY\",\"type\":\"LIMIT\"}" | openssl dgst -sha256 -hmac "902ae3cb34ecee2779aa4d3e1d226686"
 (stdin)= c50d0a74bb9427a9a03933d0eded03af9bf50115dc5b706882a4fcf07a26b761
 ```
 

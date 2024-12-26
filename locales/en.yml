@@ -1,6 +1,5 @@
 ---
 en:
     title: FameEX OpenAPI Docs
-    current_language: english
-    english: english
-    chinese: chinese
+    current: English
+    next: 中文

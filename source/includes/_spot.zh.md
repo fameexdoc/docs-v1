@@ -4,30 +4,30 @@
 
 ### 安全类型: None
 
-<aside class='notice'>公共类型接口不需要API-key或者签名就能自由访问</aside>
+<aside class='notice'>公共类型接口不需要API-key或者签名就能自由访问。</aside>
 
 ### 测试连接
 
-`GET https://openapi.xxx.com/api/v1/ping`
+`GET https://openapi.xxx.com/sapi/v1/ping`
 
 测试REST API的连通性
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/ping
+GET https://openapi.xxx.com/sapi/v1/ping
 ```
 
 ### 服务器时间
 
-`GET https://openapi.xxx.com/api/v1/time`
+`GET https://openapi.xxx.com/sapi/v1/time`
 
 获取服务器时间
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/time
+GET https://openapi.xxx.com/sapi/v1/time
 ```
 
 > 返回示例
@@ -48,14 +48,14 @@ GET https://openapi.xxx.com/api/v1/time
 
 ### 币对列表
 
-`GET https://openapi.xxx.com/api/v1/symbols`
+`GET https://openapi.xxx.com/sapi/v1/symbols`
 
 获取市场支持的币对集合
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/symbols
+GET https://openapi.xxx.com/sapi/v1/symbols
 ```
 
 > 返回示例
@@ -129,8 +129,8 @@ GET https://openapi.xxx.com/api/v1/symbols
 | symbol            | string     | `btcusdt` | `小写`币对名称     |
 | baseAsset         | string     | `BTC`     | `基准货币`         |
 | quoteAsset        | string     | `USDT`    | `计价货币`         |
-| pricePrecision    | integer    | `3`       | 价格精度           |
-| quantityPrecision | integer    | `8`       | 数量精度           |
+| pricePrecision    | integer    | `6`       | 价格精度           |
+| quantityPrecision | integer    | `3`       | 数量精度           |
 | limitVolumeMin    | BigDecimal | `0.0001`  | 限价单最小数量限制 |
 | marketBuyMin      | BigDecimal | `0.0001`  | 市价单最小购买数量 |
 | marketSellMin     | BigDecimal | `0.0001`  | 市价单最小卖出数量 |
@@ -140,18 +140,18 @@ GET https://openapi.xxx.com/api/v1/symbols
 
 ### 安全类型: None
 
-<aside class='notice'>行情下方的接口不需要API-Key或者签名就能自由访问</aside>
+<aside class='notice'>行情下方的接口不需要API-Key或者签名就能自由访问。</aside>
 
 ### 订单薄
 
-`GET https://openapi.xxx.com/api/v1/depth`
+`GET https://openapi.xxx.com/sapi/v1/depth`
 
 获取市场订单薄深度信息
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/depth?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/depth?symbol=BTCUSDT&limit=100
 ```
 
 **请求参数**
@@ -202,14 +202,14 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 ### 行情Ticker
 
-`GET https://openapi.xxx.com/api/v1/ticker`
+`GET https://openapi.xxx.com/sapi/v1/ticker`
 
 获取24小时价格变化数据
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
+GET https://openapi.xxx.com/sapi/v1/ticker?symbol=BTCUSDT
 ```
 
 **请求参数**
@@ -250,14 +250,14 @@ GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
 
 ### 最近成交
 
-`GET https://openapi.xxx.com/api/v1/trades`
+`GET https://openapi.xxx.com/sapi/v1/trades`
 
 获取最近成交数据
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/trades?symbol=BTCUSDT&limit=100
 ```
 
 **请求参数**
@@ -265,7 +265,7 @@ GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
 | 参数名                            | 类型   | 描述                            |
 | :---------------------------------| :------| :-------------------------------|
 | symbol<font color="red">\*</font> | string | `大写`币对名称，例如：`BTCUSDT` |
-| limit<font color="red">\*</font>  | string | 默认：100; 最大：1000               |
+| limit<font color="red">\*</font>  | string | 默认：100；最大：1000               |
 
 > 返回示例
 
@@ -297,14 +297,14 @@ GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
 
 ### K线/蜡烛图数据
 
-`GET https://openapi.xxx.com/api/v1/klines`
+`GET https://openapi.xxx.com/sapi/v1/klines`
 
 获取K线数据
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
+GET https://openapi.xxx.com/sapi/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 ```
 
 **请求参数**
@@ -312,7 +312,7 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 | 参数名                              | 类型    | 描述                                                                                                                                 |
 | :-----------------------------------| :-------| :------------------------------------------------------------------------------------------------------------------------------------|
 | symbol<font color="red">\*</font>   | string  | `大写`币对名称，例如：`BTCUSDT`                                                                                                      |
-| interval<font color="red">\*</font> | string  | K线图区间, 可识别发送的值为： `1min`,`5min`,`15min`,`30min`,`60min`,`1day`,`1week`,`1month`（min=分钟，day=天，week=星期，month=月） |
+| interval<font color="red">\*</font> | string  | K线图区间，可识别发送的值为：`1min`，`5min`，`15min`，`30min`，`60min`，`1day`，`1week`，`1month`（min=分钟，day=天，week=星期，month=月） |
 | limit                               | integer | 默认：100；最大：300                                                                                                                     |
 
 > 返回示例
@@ -361,11 +361,11 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 
 ### 安全类型: TRADE
 
-<aside class='notice'>交易下方的接口都需要签名和API-key验证</aside>
+<aside class='notice'>交易下方的接口都需要签名和API-key验证。</aside>
 
 ### 创建新订单
 
-`POST https://openapi.xxx.com/api/v1/order`
+`POST https://openapi.xxx.com/sapi/v1/order`
 
 **限速规则: 100次/2s**
 
@@ -380,7 +380,7 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/order
+POST https://openapi.xxx.com/sapi/v1/order
 
 body
 {
@@ -399,9 +399,9 @@ body
 | :---------------------------------| :------| :---------------------------------------------------------------|
 | symbol<font color="red">\*</font> | string | `大写`币对名称，例如：`BTCUSDT`                                 |
 | volume<font color="red">\*</font> | number | 订单数量，有精度限制，精度由管理员配置                          |
-| side<font color="red">\*</font>   | string | 订单方向, `BUY/SELL`                                            |
-| type<font color="red">\*</font>   | string | 订单类型, `LIMIT/MARKET`                                        |
-| price                             | number | 订单价格, 对于`LIMIT`订单必须发送，有精度限制，精度由管理员配置 |
+| side<font color="red">\*</font>   | string | 订单方向，`BUY/SELL`                                            |
+| type<font color="red">\*</font>   | string | 订单类型，`LIMIT/MARKET`                                        |
+| price                             | number | 订单价格，对于`LIMIT`订单必须发送，有精度限制，精度由管理员配置 |
 | newClientOrderId                  | string | 客户端订单标识                                                  |
 
 > 返回示例
@@ -425,22 +425,22 @@ body
 
 **返回参数**
 
-| 参数名           | 类型      | 示例                    | 描述                                                                         |
-| :-------------| :-------| :---------------------| :--------------------------------------------------------------------------|
-| orderId       | long    | `2012274607240433332` | 订单ID（系统生成）                                                                 |
-| clientOrderId | string  | `213443`              | 订单ID（自己发送的）                                                                |
-| symbol        | string  | `BTCUSDT`             | `大写`币对名称                                                                   |
-| transactTime  | integer | `1704959985403`       | 订单创建时间戳                                                                    |
-| price         | float   | `47651.29`            | 订单价格                                                                       |
-| origQty       | float   | `0.01`                | 订单数量                                                                       |
-| executedQty   | float   | `0`                   | 已经成交订单数量                                                                   |
-| type          | string  | `LIMIT`               | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                |
-| side          | string  | `BUY`                 | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                  |
-| status        | string  | `NEW`                 | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交）、 |
+| 参数名        | 类型    | 示例                  | 描述                                                                                                          |
+| :-------------| :-------| :---------------------| :-------------------------------------------------------------------------------------------------------------|
+| orderId       | long    | `2012274607240433332` | 订单ID（系统生成）                                                                                            |
+| clientOrderId | string  | `213443`              | 订单ID（用户生成）                                                                                            |
+| symbol        | string  | `BTCUSDT`             | `大写`币对名称                                                                                                |
+| transactTime  | integer | `1704959985403`       | 订单创建时间戳                                                                                                |
+| price         | float   | `47651.29`            | 订单价格                                                                                                      |
+| origQty       | float   | `0.01`                | 订单数量                                                                                                      |
+| executedQty   | float   | `0`                   | 已经成交订单数量                                                                                              |
+| type          | string  | `LIMIT`               | 订单类型。可能出现的值只能为：`LIMIT`(限价)和`MARKET`（市价）                                                 |
+| side          | string  | `BUY`                 | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                           |
+| status        | string  | `NEW`                 | 订单状态。可能出现的值为：`New Order`（新订单，无成交）、`Partially Filled`（部分成交）、`Filled`（全部成交） |
 
 ### 创建测试订单
 
-`POST https://openapi.xxx.com/api/v1/order/test`
+`POST https://openapi.xxx.com/sapi/v1/order/test`
 
 创建和验证新订单, 但不会送入撮合引擎
 
@@ -455,7 +455,7 @@ body
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/order/test
+POST https://openapi.xxx.com/sapi/v1/order/test
 
 body
 {
@@ -471,11 +471,11 @@ body
 
 | 参数名                            | 类型   | 描述                                                        |
 | :---------------------------------| :------| :-----------------------------------------------------------|
-| symbol<font color="red">\*</font> | string | `大写`币对名称，如`BTCUSDT`                                 |
+| symbol<font color="red">\*</font> | string | `大写`币对名称，例如`BTCUSDT`                                 |
 | volume<font color="red">\*</font> | number | 订单数量，有精度限制，由管理员配置                          |
-| side<font color="red">\*</font>   | string | 订单方向, `BUY/SELL`                                        |
-| type<font color="red">\*</font>   | string | 订单类型, `LIMIT/MARKET`                                    |
-| price                             | number | 订单价格, 对于`LIMIT`订单必须发送，有精度限制，由管理员配置 |
+| side<font color="red">\*</font>   | string | 订单方向，`BUY/SELL`                                        |
+| type<font color="red">\*</font>   | string | 订单类型，`LIMIT/MARKET`                                    |
+| price                             | number | 订单价格，对于`LIMIT`订单必须发送，有精度限制，由管理员配置 |
 | newClientOrderId                  | string | 客户端订单标识                                              |
 
 > 返回示例
@@ -486,7 +486,7 @@ body
 
 ### 批量下单
 
-`POST https://openapi.xxx.com/api/v1/batchOrders`
+`POST https://openapi.xxx.com/sapi/v1/batchOrders`
 
 **限速规则: 50次/2s 一个批量最多10个订单**
 
@@ -501,7 +501,7 @@ body
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/batchOrders
+POST https://openapi.xxx.com/sapi/v1/batchOrders
 
 body
 {
@@ -554,7 +554,7 @@ body
 
 ### 订单查询
 
-`GET https://openapi.xxx.com/api/v1/order`
+`GET https://openapi.xxx.com/sapi/v1/order`
 
 **限速规则: 20次/2s**
 
@@ -569,7 +569,7 @@ body
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
+GET https://openapi.xxx.com/sapi/v1/order?symbol=ethusdt&orderID=111000111
 ```
 
 **请求参数**
@@ -598,23 +598,23 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 
 **返回参数**
 
-| 参数名        | 类型   | 示例                 | 描述                                                                                                          |
-| :-------------| :------| :--------------------| :-------------------------------------------------------------------------------------------------------------|
-| orderId       | long   | `150695552109032492` | 订单ID（系统生成）                                                                                            |
-| clientOrderId | string | `213443`             | 订单ID（用户发送的）                                                                                          |
-| symbol        | string | `ethusdt`            | `小写`币对名称                                                                                                |
-| price         | float  | `4765.29`            | 订单价格                                                                                                      |
-| origQty       | float  | `1.01`               | 订单数量                                                                                                      |
-| executedQty   | float  | `0`                  | 已经成交订单数量                                                                                              |
-| avgPrice      | float  | `4754.24`            | 订单已经成交的平均价格                                                                                        |
-| type          | string | `LIMIT`              | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                  |
-| transactTime  | long   | `1672274311107`      | 时间戳                                                                                                        |
-| side          | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                         |
-| status        | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交）、 |
+| 参数名        | 类型   | 示例                 | 描述                                                                                                        |
+| :-------------| :------| :--------------------| :-----------------------------------------------------------------------------------------------------------|
+| orderId       | long   | `150695552109032492` | 订单ID（系统生成）                                                                                          |
+| clientOrderId | string | `213443`             | 订单ID（用户生成）                                                                                          |
+| symbol        | string | `ethusdt`            | `小写`币对名称                                                                                              |
+| price         | float  | `4765.29`            | 订单价格                                                                                                    |
+| origQty       | float  | `1.01`               | 订单数量                                                                                                    |
+| executedQty   | float  | `0`                  | 已经成交订单数量                                                                                            |
+| avgPrice      | float  | `4754.24`            | 订单已经成交的平均价格                                                                                      |
+| type          | string | `LIMIT`              | 订单类型。可能出现的值只能为：`LIMIT`(限价)和`MARKET`（市价）                                               |
+| transactTime  | long   | `1672274311107`      | 时间戳                                                                                                      |
+| side          | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                         |
+| status        | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交） |
 
 ### 撤销订单
 
-`POST https://openapi.xxx.com/api/v1/cancel`
+`POST https://openapi.xxx.com/sapi/v1/cancel`
 
 **限速规则: 100次/2s**
 
@@ -629,7 +629,8 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/cancel
+POST https://openapi.xxx.com/sapi/v1/cancel
+
 body
 {
     "symbol": "ethusdt",
@@ -642,7 +643,7 @@ body
 | 参数名                             | 类型   | 描述                          |
 | :----------------------------------| :------| :-----------------------------|
 | orderId<font color="red">\*</font> | string | 订单id                        |
-| symbol<font color="red">\*</font>  | string | `小写`币对名称，例如：ethusdt |
+| symbol<font color="red">\*</font>  | string | `小写`币对名称，例如：`ethusdt` |
 
 > 返回示例
 
@@ -666,7 +667,7 @@ body
 
 ### 批量撤销订单
 
-`POST https://openapi.xxx.com/api/v1/batchCancel`
+`POST https://openapi.xxx.com/sapi/v1/batchCancel`
 
 **限速规则: 50次/2s 一次批量最多10个订单**
 
@@ -681,7 +682,8 @@ body
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/batchCancel
+POST https://openapi.xxx.com/sapi/v1/batchCancel
+
 body
 {
     "symbol": "BTCUSDT",
@@ -694,7 +696,7 @@ body
 | 参数名                              | 类型   | 描述                                              |
 | :-----------------------------------| :------| :-------------------------------------------------|
 | symbol<font color="red">\*</font>   | string | `大写`币对名称，例如：`BTCUSDT`                   |
-| orderIds<font color="red">\*</font> | array  | 要取消的订单id集合, id值以数字格式输入`[123,456]` |
+| orderIds<font color="red">\*</font> | array  | 要取消的订单id集合，id值以数字格式输入`[123,456]` |
 
 >成功返回数据
 
@@ -719,7 +721,7 @@ body
 
 ### 当前订单
 
-`GET https://openapi.xxx.com/api/v1/openOrders`
+`GET https://openapi.xxx.com/sapi/v1/openOrders`
 
 **限速规则: 20次/2s**
 
@@ -771,22 +773,22 @@ body
 
 **返回参数**
 
-| 参数名      | 类型   | 示例                 | 描述                                                                                                          |
-| :-----------| :------| :--------------------| :-------------------------------------------------------------------------------------------------------------|
-| orderId     | long   | `150695552109032492` | 订单ID（系统生成）                                                                                            |
-| symbol      | string | `ETHUSDT`            | 币对名称                                                                                                      |
-| price       | float  | `4765.29`            | 订单价格                                                                                                      |
-| origQty     | float  | `1.01`               | 订单数量                                                                                                      |
-| executedQty | float  | `1.01`               | 已经成交订单数量                                                                                              |
-| avgPrice    | float  | `4754.24`            | 订单已经成交的平均价格                                                                                        |
-| type        | string | `LIMIT`              | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                  |
-| time        | long   | `1701243281850`      | 时间戳                                                                                                        |
-| side        | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多）和 `SELL`（卖出做空）                                          |
-| status      | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交）、 |
+| 参数名      | 类型   | 示例                 | 描述                                                                                                        |
+| :-----------| :------| :--------------------| :-----------------------------------------------------------------------------------------------------------|
+| orderId     | long   | `150695552109032492` | 订单ID（系统生成）                                                                                          |
+| symbol      | string | `ETHUSDT`            | 币对名称                                                                                                    |
+| price       | float  | `4765.29`            | 订单价格                                                                                                    |
+| origQty     | float  | `1.01`               | 订单数量                                                                                                    |
+| executedQty | float  | `1.01`               | 已经成交订单数量                                                                                            |
+| avgPrice    | float  | `4754.24`            | 订单已经成交的平均价格                                                                                      |
+| type        | string | `LIMIT`              | 订单类型。可能出现的值只能为：`LIMIT`(限价)和`MARKET`（市价）                                               |
+| time        | long   | `1701243281850`      | 时间戳                                                                                                      |
+| side        | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                         |
+| status      | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交） |
 
 ### 交易记录
 
-`GET https://openapi.xxx.com/api/v1/myTrades`
+`GET https://openapi.xxx.com/sapi/v1/myTrades`
 
 **限速规则: 20次/2s**
 
@@ -801,7 +803,7 @@ body
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/myTrades?symbol=BTCUSDT&limit=100
 ```
 
 **请求参数**
@@ -876,11 +878,11 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 
 ### 安全类型: USER\_DATA
 
-<aside class="notice">账户下方的接口都需要签名和API-key验证</aside>
+<aside class="notice">账户下方的接口都需要签名和API-key验证。</aside>
 
 ### 账户信息
 
-`GET https://openapi.xxx.com/api/v1/account`
+`GET https://openapi.xxx.com/sapi/v1/account`
 
 **限速规则: 20次/2s**
 

@@ -27,7 +27,7 @@
 
 ## K线间隔
 
-min -> 分钟; h -> 小时; day -> 天; week -> 周; month -> 月
+min -> 分钟；h -> 小时；day -> 天；week -> 周；month -> 月
 
 *   `1min`
 *   `5min`

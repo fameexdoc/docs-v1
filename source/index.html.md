@@ -15,7 +15,7 @@ search: true
 code_clipboard: true
 
 toc_footers:
- - <a href='https://www.fameex.com/' target='_blank'>FameEX</a>
+ - <a href='https://www.fameex.net/' target='_blank'>FameEX</a>
 
 meta:
   - name: FameEX OpenAPI Docs
@@ -26,18 +26,18 @@ meta:
 
 ## 接口示例
 
-下方接口为获取服务器时间的接口，以该接口作为示例，展示接口格式、访问链接和参数说明描述
+下方接口为获取服务器时间的接口，以该接口作为示例，展示接口格式、访问链接和参数说明描述。
 
 ### 获取服务器时间
 
-`GET https://openapi.fcexapex.pro/api/v1/time`
+`GET https://openapi.xxx.com/sapi/v1/time`
 
 获取服务器时间
 
 > 请求示例
 
 ```http
-GET https://openapi.fcexapex.pro/api/v1/time
+GET https://openapi.xxx.com/sapi/v1/time
 ```
 
 > 返回示例
@@ -58,20 +58,20 @@ GET https://openapi.fcexapex.pro/api/v1/time
 
 ## 文档入参规范
 
-入参名称的右上角带红色<font color="red">\*</font>号说明该参数为必传，反之为非必传
+入参名称的带有红色<font color="red">\*</font>号，说明该参数为必传，反之为非必传。
 
-接口对入参字符大小写敏感，在接口中会明确指明。如写明需要输入大写的币对名称，则需要输入BTCUSDT，输入小写的btcusdt是不被允许的
+接口对入参字符大小写敏感，在接口中会明确指明。如写明需要输入大写的币对名称，则需要输入BTCUSDT，输入小写的btcusdt是不被允许的。
 
-文档中的入参有明确的类型说明，需要按照指定的类型输入。如integer类型只能输入数字类型，3的输入是正确的，但"3"的输入是不被允许的
+文档中的入参有明确的类型说明，需要按照指定的类型输入。如integer类型只能输入数字类型，3的输入是正确的，但"3"的输入是不被允许的。
 
 ## 接口是否需要签名验证
 
-接口类型分为：公共、行情、交易、账户
+接口类型分为：公共、行情、交易、账户。
 
-*   公共和行情类下的接口无需API-Key或者签名就可访问
-*   交易和账户安全需要API-Key和签名验证后才可访问
-*   签名内容和参数有关，若参数输入错误则会返回提示参数错误或空值
-*   需要签名验证的接口，要在Header中添加X-CH-SIGN, X-CH-APIKEY, X-CH-TS进行验签。签名规则和示例可参照：[签名示例](https://fameexdoc.github.io/docs-v1/?http#09957702bc) (文档中的apiKey，secretKey均为虚拟值；真实内容需要用户在前台页面的API管理中申请获取)
+*   公共和行情类下的接口无需API-Key或者签名就可访问。
+*   交易和账户安全需要API-Key和签名验证后才可访问。
+*   签名内容和参数有关，若参数输入错误则会返回提示参数错误或空值。
+*   需要签名验证的接口 要在Header中添加X-CH-SIGN，X-CH-APIKEY，X-CH-TS进行验签。签名规则和示例可参照：[签名示例](https://fameexdoc.github.io/docs-v1/?http#09957702bc)(文档中的apiKey，secretKey均为虚拟值；真实内容需要用户在前台页面的API管理中申请获取)。
 
 ## 返回码的类型
 
@@ -79,19 +79,19 @@ GET https://openapi.fcexapex.pro/api/v1/time
 
 ## API基本信息
 
-*   本篇列出REST接口的baseurl`https://openapi.xxx.com`
-*   所有接口都会返回一个JSON object或者array
-*   响应中如有数组，数组元素以时间倒序排列，越早的数据越靠前
-*   所有时间、时间戳均为Unix时间，单位为**毫秒**
+*   本篇列出REST接口的baseurl`https://openapi.xxx.com`。
+*   所有接口都会返回一个JSON object或者array。
+*   响应中如有数组，数组元素以时间倒序排列，越早的数据越靠前。
+*   所有时间、时间戳均为Unix时间，单位为**毫秒**。
 
 HTTP返回代码
 
-*   HTTP`4XX`错误码用于指示错误的请求内容、行为、格式
-*   HTTP`429`错误码表示警告访问频次超限，即将被封IP
-*   HTTP`418`表示收到429后继续访问，于是被封了
-*   HTTP`5XX`返回错误码是内部系统错误；这说明这个问题是在服务器这边。在对待这个错误时，**千万**不要把它当成一个失败的任务，因为执行状态未知，有可能是成功也有可能是失败
-*   HTTP`504`表示API服务端已经向业务核心提交了请求但未能获取响应，特别需要注意的是`504`代码不代表请求失败，而是未知。很可能已经得到了执行，也有可能执行失败，需要做进一步确认
-*   任何接口都可能返回ERROR(错误); 错误的返回payload如下：
+*   HTTP`4XX`错误码用于指示错误的请求内容、行为、格式。
+*   HTTP`429`错误码表示警告访问频次超限，即将被封IP。
+*   HTTP`418`表示收到429后继续访问，于是被封了。
+*   HTTP`5XX`返回错误码是内部系统错误；这说明这个问题是在服务器这边。在对待这个错误时，**千万**不要把它当成一个失败的任务，因为执行状态未知，有可能是成功也有可能是失败。
+*   HTTP`504`表示API服务端已经向业务核心提交了请求但未能获取响应，特别需要注意的是`504`代码不代表请求失败，而是未知。很可能已经得到了执行，也有可能执行失败，需要做进一步确认。
+*   任何接口都可能返回ERROR（错误）；错误的返回payload如下：
 
 > 返回示例
 
@@ -104,23 +104,23 @@ HTTP返回代码
 
 ## 接口通用信息
 
-*   所有请求基于Https协议，请求头信息中`Content-Type`需要统一设置为：`'application/json'`
-*   `GET`方法的接口, 参数必须在`query string`中发送
-*   `POST`方法的接口, 参数必须在`request body`中发送
-*   对参数的顺序不做要求
+*   所有请求基于Https协议，请求头信息中`Content-Type`需要统一设置为：`'application/json'`。
+*   `GET`方法的接口，参数必须在`query string`中发送。
+*   `POST`方法的接口，参数必须在`request body`中发送。
+*   对参数的顺序不做要求。
 
 ## 访问限制
 
-*   在每个接口下面会有限频的说明
-*   违反频率限制都会收到`HTTP 429`，这是一个警告
-*   当收到`HTTP 429`告警时，调用者应当降低访问频率或者停止访问
+*   在每个接口下面会有限频的说明。
+*   违反频率限制都会收到`HTTP 429`，这是一个警告。
+*   当收到`HTTP 429`告警时，调用者应当降低访问频率或者停止访问。
 
 ## 接口鉴权类型
 
-*   每个接口都有自己的鉴权类型，鉴权类型决定了访问时应当进行何种鉴权
-*   如果需要API-key，应当在HTTP头中以`X-CH-APIKEY`字段传递
-*   API-key与API-secret是大小写敏感的
-*   可以在网页用户中心修改API-key所具有的权限，例如读取账户信息、发送交易指令、发送提现指令
+*   每个接口都有自己的鉴权类型，鉴权类型决定了访问时应当进行何种鉴权。
+*   如果需要API-key，应当在HTTP头中以`X-CH-APIKEY`字段传递。
+*   API-key与API-secret是大小写敏感的。
+*   可以在网页用户中心修改API-key所具有的权限，例如读取账户信息、发送交易指令、发送提现指令。
 
 | 鉴权类型     | 描述                    |
 | :------------| :-----------------------|
@@ -132,19 +132,19 @@ HTTP返回代码
 
 ## 需要签名的接口 (TRADE 与 USER\_DATA)
 
-*   调用`TRADE`或者`USER_DATA`接口时，应当在HTTP头中以`X-CH-SIGN`字段传递签名参数
-*   签名使用`HMAC SHA256`算法，API-KEY所对应的API-Secret作为 `HMAC SHA256` 的密钥
-*   `X-CH-SIGN`的请求头是以timestamp + method + requestPath + body字符串（+表示字符串连接）作为操作对象
-*   其中timestamp的值与`X-CH-TS`请求头相同, method是请求方法，字母全部大写：`GET`/`POST`
-*   requestPath是请求接口路径，例如:/api/v1/order?orderId=211222334\&symbol=BTCUSDT
-*   `body`是请求主体的字符串(post only) 如果是`GET`请求则`body`可省略
-*   签名大小写不敏感
+*   调用`TRADE`或者`USER_DATA`接口时，应当在HTTP头中以`X-CH-SIGN`字段传递签名参数。
+*   签名使用`HMAC SHA256`算法，API-KEY所对应的API-Secret作为 `HMAC SHA256` 的密钥。
+*   `X-CH-SIGN`的请求头是以timestamp + method + requestPath + body字符串（+表示字符串连接）作为操作对象。
+*   其中timestamp的值与`X-CH-TS`请求头相同，method是请求方法，字母全部大写：`GET`/`POST`。
+*   requestPath是请求接口路径，例如:`/sapi/v1/order`。
+*   `body`是请求主体的字符串（post only），如果是`GET`请求则`body`可省略。
+*   签名大小写不敏感。
 
 ## 时间同步安全
 
-*   签名接口均需要在HTTP头中以`X-CH-TS`字段传递时间戳, 其值应当是请求发送时刻的Unix时间戳（毫秒），e.g. 1528394129373
+*   签名接口均需要在HTTP头中以`X-CH-TS`字段传递时间戳，其值应当是请求发送时刻的Unix时间戳（毫秒），E.g. `1528394129373`。
 *   服务器收到请求时会判断请求中的时间戳，如果是5000毫秒之前发出的，则请求会被认为无效。这个时间窗口值可以通过发送可选参数`recvWindow`来自定义。
-*   另外，如果服务器计算得出客户端时间戳在服务器时间的‘未来’一秒以上，也会拒绝请求
+*   另外，如果服务器计算得出客户端时间戳在服务器时间的`未来`一秒以上，也会拒绝请求。
 *   Java逻辑伪代码：
 
 ```java
@@ -155,14 +155,14 @@ if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= recvWindow) {
 }
 ```
 
-<aside class="notice">关于交易时效性：互联网状况并不100%可靠，不可完全依赖，因此你的程序本地到交易所服务器的时延会有抖动. 这是我们设置<code>recvWindow</code>的目的所在，如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置<code>recvWindow</code>以达到你的要求。 不推荐使用5秒以上的<code>recvWindow</code></aside>
+<aside class="notice">关于交易时效性：互联网状况并不100%可靠，不可完全依赖，因此你的程序本地到交易所服务器的时延会有抖动。这是我们设置<code>recvWindow</code>的目的所在，如果你从事高频交易，对交易时效性有较高的要求，可以灵活设置<code>recvWindow</code>以达到你的要求。不推荐使用5秒以上的<code>recvWindow</code>。</aside>
 
-## POST /api/v1/order/test 的示例
+## POST /sapi/v1/order/test 的示例
 
-以下是在linux bash环境下使用echo，openssl和curl工具实现的一个调用接口下单的示例，其中apikey、secretKey仅供示范，请将其替换为您的真实apiKey和secretKey
+以下是在linux bash环境下使用echo，openssl和curl工具实现的一个调用接口下单的示例，其中apikey、secretKey仅供示范，请将其替换为您的真实`apiKey`和`secretKey`。
 
 | Key       | Value                            |
-|-:---------|-:--------------------------------|
+| :---------| :--------------------------------|
 | apiKey    | vmPUZE6mv9SD5V5e14y7Ju91duEh8A   |
 | secretKey | 902ae3cb34ecee2779aa4d3e1d226686 |
 
@@ -185,7 +185,7 @@ if (timestamp < (serverTime + 1000) && (serverTime - timestamp) <= recvWindow) {
 > HMAC-SHA256 签名
 
 ```shell
-echo -n "1588591856950POST/api/v1/order/test{\"symbol\":\"BTCUSDT\",\"price\":\"9300\",\"volume\":\"1\",\"side\":\"BUY\",\"type\":\"LIMIT\"}" | openssl dgst -sha256 -hmac "902ae3cb34ecee2779aa4d3e1d226686"
+echo -n "1588591856950POST/sapi/v1/order/test{\"symbol\":\"BTCUSDT\",\"price\":\"9300\",\"volume\":\"1\",\"side\":\"BUY\",\"type\":\"LIMIT\"}" | openssl dgst -sha256 -hmac "902ae3cb34ecee2779aa4d3e1d226686"
 (stdin)= c50d0a74bb9427a9a03933d0eded03af9bf50115dc5b706882a4fcf07a26b761
 ```
 
@@ -199,27 +199,27 @@ curl -H "X-CH-APIKEY: c3b165fd5218cdd2c2874c65da468b1e" -H "X-CH-SIGN: c50d0a74b
 
 异常码和错误码的描述和原因
 
-<aside class="warning">以下返回内容均为基本参数校验，若返回码不包含在以下列出的返回码类型中，则为业务层以外的错误提示返回，需要联系技术人员进行处理</aside>
+<aside class="warning">以下返回内容均为基本参数校验，若返回码不包含在以下列出的返回码类型中，则为业务层以外的错误提示返回，需要联系技术人员进行处理。</aside>
 
 ## 10XX - 通用服务器和网络错误
 
 ### Code:-1000 UNKNOWN
 
-msg：An unknown error occurred while processing the request
+msg：处理请求时发生未知错误
 
 原因：处理请求时发生未知错误
 
 ### Code:-1001 DISCONNECTED
 
-msg：内部错误; 无法处理您的请求。 请再试一次
+msg：内部错误；无法处理您的请求。请再试一次
 
-原因：内部错误; 无法处理您的请求
+原因：内部错误；无法处理您的请求
 
 ### Code:-1002 UNAUTHORIZED
 
-msg：You are not authorized to execute this request. The request needs to send an API Key, and we recommend appending the X-CH-APIKEY to all request headers
+msg：您无权执行此请求。请求需要发送API Key，我们建议在所有的请求头附加X-CH-APIKEY
 
-原因：header中未添加签名所需要的X\_CH\_APIKEY
+原因：请求头中缺少X-CH-APIKEY
 
 ### Code:-1003 TOO\_MANY\_REQUESTS
 
@@ -241,7 +241,7 @@ msg：接收到了不符合预设格式的消息，下单状态未知
 
 ### Code:-1007 TIMEOUT
 
-msg：等待后端服务器响应超时。 发送状态未知，执行状态未知
+msg：等待后端服务器响应超时。发送状态未知；执行状态未知
 
 原因：请求超时
 
@@ -253,7 +253,7 @@ msg：不支持的订单组合
 
 ### Code:-1015 TOO\_MANY\_ORDERS
 
-msg：Too many orders. Please reduce the number of your orders
+msg：订单太多。请减少你的订单数量
 
 原因：下单数量超过最大数量限制
 
@@ -265,7 +265,7 @@ msg：服务器下线
 
 ### Code:-1017 NO\_CONTENT\_TYPE
 
-msg：我们建议在所有的请求头附加Content-Type, 并设置成application/json
+msg：我们建议在所有的请求头附加Content-Type，并设置成application/json
 
 原因：请求头中缺少Content-Type
 
@@ -277,27 +277,27 @@ msg：不支持此操作
 
 ### Code:-1021 INVALID\_TIMESTAMP
 
-msg：Invalid timestamp with too large time offset
+msg：无效的时间戳，时间偏移过大
 
-原因：时间戳偏移偏大，服务器根据请求中的时间戳判定客户端时间比服务器时间提前了1秒钟以上.
+原因：时间戳偏移偏大，服务器根据请求中的时间戳判定客户端时间比服务器时间提前了1秒钟以上
 
 ### Code:-1022 INVALID\_SIGNATURE
 
-msg：Invalid signature
+msg：无效的签名
 
 原因：签名验证失败
 
 ### Code:-1023 UNAUTHORIZED
 
-msg：You are not authorized to execute this request. The request need to send timestamps, and we recommend appending X-CH-TS to all request headers
+msg：您无权执行此请求。请求需要发送timestamp，我们建议在所有的请求头附加X-CH-TS
 
-原因：header中未添加签名所需要的X-CH-TS
+原因：请求头中缺少X-CH-TS
 
 ### Code:-1024 UNAUTHORIZED
 
-msg：You are not authorized to execute this request. The request needs to send sign, and we recommend appending X-CH-SIGN to all request headers
+msg：您无权执行此请求。请求需要发送sign，我们建议在所有的请求头附加X-CH-SIGN
 
-原因：header中未添加签名所需要的X-CH-SIGN
+原因：请求头中缺少X-CH-SIGN
 
 ## 11XX - 请求内容中的问题
 
@@ -305,7 +305,7 @@ msg：You are not authorized to execute this request. The request needs to send 
 
 msg：请求中存在非法字符
 
-原因：请求参数中存在非法字符
+原因：请求中存在非法字符
 
 ### Code:-1101 TOO\_MANY\_PARAMETERS
 
@@ -315,7 +315,7 @@ msg：发送的参数太多
 
 ### Code:-1102 MANDATORY\_PARAM\_EMPTY\_OR\_MALFORMED
 
-msg: Forced parameter XXX not sent, empty or incorrect format
+msg：强制参数{0}未发送，为空/或格式错误
 
 原因：参数为空，必传参数未传或不正确的入参格式
 
@@ -329,11 +329,11 @@ msg：发送了未知参数
 
 msg：并非所有发送的参数都被读取
 
-原因：并非所有发送的参数都被读取； 读取了'％s'参数，但被发送了'％s'
+原因：并非所有发送的参数都被读取；读取了'％s'参数，但被发送了'％s'
 
-### Code:-1105
+### Code:-1105 PARAM\_EMPTY
 
-msg：The parameter XXX is empty
+msg：参数{0}为空
 
 原因：必传参数为空
 
@@ -341,7 +341,7 @@ msg：The parameter XXX is empty
 
 msg：不需要发送此参数
 
-原因：不需要时发送参数'％s'
+原因：不需要发送参数'％s'
 
 ### Code:-1111 BAD\_PRECISION
 
@@ -349,27 +349,27 @@ msg：精度超过此资产定义的最大值
 
 原因：精度超过此资产定义的最大值
 
-### Code:-1112
+### Code:-1112 NO\_DEPTH
 
-msg：There are no pending orders for trading pairs
+msg：交易对没有挂单
 
 原因：需要取消的该订单不存在
 
 ### Code:-1116 INVALID\_ORDER\_TYPE
 
-msg：Invalid order type
+msg：无效订单类型
 
 原因：无效订单类型
 
 ### Code:-1117 INVALID\_SIDE
 
-msg：Invalid buying or selling direction
+msg：无效买卖方向
 
 原因：无效买卖方向
 
-### Code:-1121
+### Code:-1121 BAD\_SYMBOL
 
-msg: Invalid contract
+msg：无效的合约
 
 原因：币对名称输入错误或合约名称输入错误
 
@@ -381,19 +381,19 @@ msg：订单数量小于最小值
 
 ### Code:-1138 ORDER\_PRICE\_WAVE\_EXCEED
 
-msg：The order price is outside the allowable range
+msg：订单价格超出允许范围
 
 原因：订单价格超出允许范围
 
 ### Code:-1139 ORDER\_NOT\_SUPPORT\_MARKET
 
-msg：The pair does not support market trading
+msg：该币对不支持市价交易
 
 原因：该交易对不支持市价交易
 
-### Code:-1145
+### Code:-1145 ORDER\_NOT\_SUPPORT\_CANCELLATION
 
-msg：The order status does not allow for cancellation
+msg：该订单状态不允许撤销
 
 原因：订单不能够被取消
 
@@ -411,31 +411,31 @@ msg：订单不存在
 
 原因：订单不存在
 
-### Code:-2015
+### Code:-2015 REJECTED\_API\_KEY
 
-msg：Invalid API key, IP or operation permission
+msg：无效的API密钥，IP或操作权限
 
 原因：签名或IP不通过
 
-### Code:-2016
+### Code:-2016 EXCHANGE\_LOCK
 
-msg：Transactions are frozen
+msg：交易被冻结
 
 原因：该用户交易被冻结
 
-### Code:-2017 balance\_not\_enough
+### Code:-2017 BALANCE\_NOT\_ENOUGH
 
 msg：余额不足
 
 原因：用户该账户中余额不足
 
-### Code:-2100
+### Code:-2100 PARAM\_ERROR
 
-msg：Parameter error
+msg：参数问题
 
 原因：参数输入错误
 
-### Code:-2200
+### Code:-2200 ORDER\_CREATE\_FAILS
 
 msg：Illegal IP
 
@@ -476,7 +476,7 @@ msg：禁止下单
 
 ## K线间隔
 
-min -> 分钟; h -> 小时; day -> 天; week -> 周; month -> 月
+min -> 分钟；h -> 小时；day -> 天；week -> 周；month -> 月
 
 *   `1min`
 *   `5min`
@@ -494,30 +494,30 @@ min -> 分钟; h -> 小时; day -> 天; week -> 周; month -> 月
 
 ### 安全类型: None
 
-<aside class='notice'>公共类型接口不需要API-key或者签名就能自由访问</aside>
+<aside class='notice'>公共类型接口不需要API-key或者签名就能自由访问。</aside>
 
 ### 测试连接
 
-`GET https://openapi.xxx.com/api/v1/ping`
+`GET https://openapi.xxx.com/sapi/v1/ping`
 
 测试REST API的连通性
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/ping
+GET https://openapi.xxx.com/sapi/v1/ping
 ```
 
 ### 服务器时间
 
-`GET https://openapi.xxx.com/api/v1/time`
+`GET https://openapi.xxx.com/sapi/v1/time`
 
 获取服务器时间
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/time
+GET https://openapi.xxx.com/sapi/v1/time
 ```
 
 > 返回示例
@@ -538,14 +538,14 @@ GET https://openapi.xxx.com/api/v1/time
 
 ### 币对列表
 
-`GET https://openapi.xxx.com/api/v1/symbols`
+`GET https://openapi.xxx.com/sapi/v1/symbols`
 
 获取市场支持的币对集合
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/symbols
+GET https://openapi.xxx.com/sapi/v1/symbols
 ```
 
 > 返回示例
@@ -630,18 +630,18 @@ GET https://openapi.xxx.com/api/v1/symbols
 
 ### 安全类型: None
 
-<aside class='notice'>行情下方的接口不需要API-Key或者签名就能自由访问</aside>
+<aside class='notice'>行情下方的接口不需要API-Key或者签名就能自由访问。</aside>
 
 ### 订单薄
 
-`GET https://openapi.xxx.com/api/v1/depth`
+`GET https://openapi.xxx.com/sapi/v1/depth`
 
 获取市场订单薄深度信息
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/depth?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/depth?symbol=BTCUSDT&limit=100
 ```
 
 **请求参数**
@@ -649,7 +649,7 @@ GET https://openapi.xxx.com/api/v1/depth?symbol=BTCUSDT&limit=100
 | 参数名                            | 类型    | 描述                            |
 | :---------------------------------| :-------| :-------------------------------|
 | symbol<font color="red">\*</font> | string  | `大写`币对名称，例如：`BTCUSDT` |
-| limit<font color="red">\*</font>  | integer | 默认：100; 最大：100            |
+| limit<font color="red">\*</font>  | integer | 默认：100；最大：100            |
 
 > 返回示例
 
@@ -692,14 +692,14 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 ### 行情Ticker
 
-`GET https://openapi.xxx.com/api/v1/ticker`
+`GET https://openapi.xxx.com/sapi/v1/ticker`
 
 获取24小时价格变化数据
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
+GET https://openapi.xxx.com/sapi/v1/ticker?symbol=BTCUSDT
 ```
 
 **请求参数**
@@ -740,14 +740,14 @@ GET https://openapi.xxx.com/api/v1/ticker?symbol=BTCUSDT
 
 ### 最近成交
 
-`GET https://openapi.xxx.com/api/v1/trades`
+`GET https://openapi.xxx.com/sapi/v1/trades`
 
 获取最近成交数据
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/trades?symbol=BTCUSDT&limit=100
 ```
 
 **请求参数**
@@ -755,7 +755,7 @@ GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
 | 参数名                            | 类型   | 描述                            |
 | :---------------------------------| :------| :-------------------------------|
 | symbol<font color="red">\*</font> | string | `大写`币对名称，例如：`BTCUSDT` |
-| limit<font color="red">\*</font>  | string | 默认100; 最大1000               |
+| limit<font color="red">\*</font>  | string | 默认：100；最大：1000               |
 
 > 返回示例
 
@@ -787,14 +787,14 @@ GET https://openapi.xxx.com/api/v1/trades?symbol=BTCUSDT&limit=100
 
 ### K线/蜡烛图数据
 
-`GET https://openapi.xxx.com/api/v1/klines`
+`GET https://openapi.xxx.com/sapi/v1/klines`
 
 获取K线数据
 
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
+GET https://openapi.xxx.com/sapi/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 ```
 
 **请求参数**
@@ -802,8 +802,8 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 | 参数名                              | 类型    | 描述                                                                                                                                 |
 | :-----------------------------------| :-------| :------------------------------------------------------------------------------------------------------------------------------------|
 | symbol<font color="red">\*</font>   | string  | `大写`币对名称，例如：`BTCUSDT`                                                                                                      |
-| interval<font color="red">\*</font> | string  | K线图区间, 可识别发送的值为： `1min`,`5min`,`15min`,`30min`,`60min`,`1day`,`1week`,`1month`（min=分钟，day=天，week=星期，month=月） |
-| limit                               | integer | 默认100; 最大300                                                                                                                     |
+| interval<font color="red">\*</font> | string  | K线图区间，可识别发送的值为：`1min`，`5min`，`15min`，`30min`，`60min`，`1day`，`1week`，`1month`（min=分钟，day=天，week=星期，month=月） |
+| limit                               | integer | 默认：100；最大：300                                                                                                                     |
 
 > 返回示例
 
@@ -851,11 +851,11 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 
 ### 安全类型: TRADE
 
-<aside class='notice'>交易下方的接口都需要签名和API-key验证</aside>
+<aside class='notice'>交易下方的接口都需要签名和API-key验证。</aside>
 
 ### 创建新订单
 
-`POST https://openapi.xxx.com/api/v1/order`
+`POST https://openapi.xxx.com/sapi/v1/order`
 
 **限速规则: 100次/2s**
 
@@ -870,7 +870,7 @@ GET https://openapi.xxx.com/api/v1/klines?symbol=BTCUSDT&interval=1min&limit=100
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/order
+POST https://openapi.xxx.com/sapi/v1/order
 
 body
 {
@@ -889,9 +889,9 @@ body
 | :---------------------------------| :------| :---------------------------------------------------------------|
 | symbol<font color="red">\*</font> | string | `大写`币对名称，例如：`BTCUSDT`                                 |
 | volume<font color="red">\*</font> | number | 订单数量，有精度限制，精度由管理员配置                          |
-| side<font color="red">\*</font>   | string | 订单方向, `BUY/SELL`                                            |
-| type<font color="red">\*</font>   | string | 订单类型, `LIMIT/MARKET`                                        |
-| price                             | number | 订单价格, 对于`LIMIT`订单必须发送，有精度限制，精度由管理员配置 |
+| side<font color="red">\*</font>   | string | 订单方向，`BUY/SELL`                                            |
+| type<font color="red">\*</font>   | string | 订单类型，`LIMIT/MARKET`                                        |
+| price                             | number | 订单价格，对于`LIMIT`订单必须发送，有精度限制，精度由管理员配置 |
 | newClientOrderId                  | string | 客户端订单标识                                                  |
 
 > 返回示例
@@ -915,22 +915,22 @@ body
 
 **返回参数**
 
-| 参数名           | 类型      | 示例                    | 描述                                                                         |
-| :-------------| :-------| :---------------------| :--------------------------------------------------------------------------|
-| orderId       | long    | `2012274607240433332` | 订单ID（系统生成）                                                                 |
-| clientOrderId | string  | `213443`              | 订单ID（自己发送的）                                                                |
-| symbol        | string  | `BTCUSDT`             | `大写`币对名称                                                                   |
-| transactTime  | integer | `1704959985403`       | 订单创建时间戳                                                                    |
-| price         | float   | `47651.29`            | 订单价格                                                                       |
-| origQty       | float   | `0.01`                | 订单数量                                                                       |
-| executedQty   | float   | `0`                   | 已经成交订单数量                                                                   |
-| type          | string  | `LIMIT`               | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                |
-| side          | string  | `BUY`                 | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                  |
-| status        | string  | `NEW`                 | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交）、 |
+| 参数名        | 类型    | 示例                  | 描述                                                                                                          |
+| :-------------| :-------| :---------------------| :-------------------------------------------------------------------------------------------------------------|
+| orderId       | long    | `2012274607240433332` | 订单ID（系统生成）                                                                                            |
+| clientOrderId | string  | `213443`              | 订单ID（用户生成）                                                                                            |
+| symbol        | string  | `BTCUSDT`             | `大写`币对名称                                                                                                |
+| transactTime  | integer | `1704959985403`       | 订单创建时间戳                                                                                                |
+| price         | float   | `47651.29`            | 订单价格                                                                                                      |
+| origQty       | float   | `0.01`                | 订单数量                                                                                                      |
+| executedQty   | float   | `0`                   | 已经成交订单数量                                                                                              |
+| type          | string  | `LIMIT`               | 订单类型。可能出现的值只能为：`LIMIT`(限价)和`MARKET`（市价）                                                 |
+| side          | string  | `BUY`                 | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                           |
+| status        | string  | `NEW`                 | 订单状态。可能出现的值为：`New Order`（新订单，无成交）、`Partially Filled`（部分成交）、`Filled`（全部成交） |
 
 ### 创建测试订单
 
-`POST https://openapi.xxx.com/api/v1/order/test`
+`POST https://openapi.xxx.com/sapi/v1/order/test`
 
 创建和验证新订单, 但不会送入撮合引擎
 
@@ -945,7 +945,7 @@ body
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/order/test
+POST https://openapi.xxx.com/sapi/v1/order/test
 
 body
 {
@@ -961,11 +961,11 @@ body
 
 | 参数名                            | 类型   | 描述                                                        |
 | :---------------------------------| :------| :-----------------------------------------------------------|
-| symbol<font color="red">\*</font> | string | `大写`币对名称，如`BTCUSDT`                                 |
+| symbol<font color="red">\*</font> | string | `大写`币对名称，例如`BTCUSDT`                                 |
 | volume<font color="red">\*</font> | number | 订单数量，有精度限制，由管理员配置                          |
-| side<font color="red">\*</font>   | string | 订单方向, `BUY/SELL`                                        |
-| type<font color="red">\*</font>   | string | 订单类型, `LIMIT/MARKET`                                    |
-| price                             | number | 订单价格, 对于`LIMIT`订单必须发送，有精度限制，由管理员配置 |
+| side<font color="red">\*</font>   | string | 订单方向，`BUY/SELL`                                        |
+| type<font color="red">\*</font>   | string | 订单类型，`LIMIT/MARKET`                                    |
+| price                             | number | 订单价格，对于`LIMIT`订单必须发送，有精度限制，由管理员配置 |
 | newClientOrderId                  | string | 客户端订单标识                                              |
 
 > 返回示例
@@ -976,7 +976,7 @@ body
 
 ### 批量下单
 
-`POST https://openapi.xxx.com/api/v1/batchOrders`
+`POST https://openapi.xxx.com/sapi/v1/batchOrders`
 
 **限速规则: 50次/2s 一个批量最多10个订单**
 
@@ -991,7 +991,7 @@ body
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/batchOrders
+POST https://openapi.xxx.com/sapi/v1/batchOrders
 
 body
 {
@@ -1044,7 +1044,7 @@ body
 
 ### 订单查询
 
-`GET https://openapi.xxx.com/api/v1/order`
+`GET https://openapi.xxx.com/sapi/v1/order`
 
 **限速规则: 20次/2s**
 
@@ -1059,7 +1059,7 @@ body
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
+GET https://openapi.xxx.com/sapi/v1/order?symbol=ethusdt&orderID=111000111
 ```
 
 **请求参数**
@@ -1088,23 +1088,23 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 
 **返回参数**
 
-| 参数名        | 类型   | 示例                 | 描述                                                                                                          |
-| :-------------| :------| :--------------------| :-------------------------------------------------------------------------------------------------------------|
-| orderId       | long   | `150695552109032492` | 订单ID（系统生成）                                                                                            |
-| clientOrderId | string | `213443`             | 订单ID（用户发送的）                                                                                          |
-| symbol        | string | `ethusdt`            | `小写`币对名称                                                                                                |
-| price         | float  | `4765.29`            | 订单价格                                                                                                      |
-| origQty       | float  | `1.01`               | 订单数量                                                                                                      |
-| executedQty   | float  | `0`                  | 已经成交订单数量                                                                                              |
-| avgPrice      | float  | `4754.24`            | 订单已经成交的平均价格                                                                                        |
-| type          | string | `LIMIT`              | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                  |
-| transactTime  | long   | `1672274311107`      | 时间戳                                                                                                        |
-| side          | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                         |
-| status        | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交）、 |
+| 参数名        | 类型   | 示例                 | 描述                                                                                                        |
+| :-------------| :------| :--------------------| :-----------------------------------------------------------------------------------------------------------|
+| orderId       | long   | `150695552109032492` | 订单ID（系统生成）                                                                                          |
+| clientOrderId | string | `213443`             | 订单ID（用户生成）                                                                                          |
+| symbol        | string | `ethusdt`            | `小写`币对名称                                                                                              |
+| price         | float  | `4765.29`            | 订单价格                                                                                                    |
+| origQty       | float  | `1.01`               | 订单数量                                                                                                    |
+| executedQty   | float  | `0`                  | 已经成交订单数量                                                                                            |
+| avgPrice      | float  | `4754.24`            | 订单已经成交的平均价格                                                                                      |
+| type          | string | `LIMIT`              | 订单类型。可能出现的值只能为：`LIMIT`(限价)和`MARKET`（市价）                                               |
+| transactTime  | long   | `1672274311107`      | 时间戳                                                                                                      |
+| side          | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                         |
+| status        | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交） |
 
 ### 撤销订单
 
-`POST https://openapi.xxx.com/api/v1/cancel`
+`POST https://openapi.xxx.com/sapi/v1/cancel`
 
 **限速规则: 100次/2s**
 
@@ -1119,7 +1119,8 @@ GET https://openapi.xxx.com/api/v1/order?symbol=ethusdt&orderID=111000111
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/cancel
+POST https://openapi.xxx.com/sapi/v1/cancel
+
 body
 {
     "symbol": "ethusdt",
@@ -1132,7 +1133,7 @@ body
 | 参数名                             | 类型   | 描述                          |
 | :----------------------------------| :------| :-----------------------------|
 | orderId<font color="red">\*</font> | string | 订单id                        |
-| symbol<font color="red">\*</font>  | string | `小写`币对名称，例如：ethusdt |
+| symbol<font color="red">\*</font>  | string | `小写`币对名称，例如：`ethusdt` |
 
 > 返回示例
 
@@ -1156,7 +1157,7 @@ body
 
 ### 批量撤销订单
 
-`POST https://openapi.xxx.com/api/v1/batchCancel`
+`POST https://openapi.xxx.com/sapi/v1/batchCancel`
 
 **限速规则: 50次/2s 一次批量最多10个订单**
 
@@ -1171,7 +1172,8 @@ body
 > 请求示例
 
 ```http
-POST https://openapi.xxx.com/api/v1/batchCancel
+POST https://openapi.xxx.com/sapi/v1/batchCancel
+
 body
 {
     "symbol": "BTCUSDT",
@@ -1184,7 +1186,7 @@ body
 | 参数名                              | 类型   | 描述                                              |
 | :-----------------------------------| :------| :-------------------------------------------------|
 | symbol<font color="red">\*</font>   | string | `大写`币对名称，例如：`BTCUSDT`                   |
-| orderIds<font color="red">\*</font> | array  | 要取消的订单id集合, id值以数字格式输入`[123,456]` |
+| orderIds<font color="red">\*</font> | array  | 要取消的订单id集合，id值以数字格式输入`[123,456]` |
 
 >成功返回数据
 
@@ -1209,7 +1211,7 @@ body
 
 ### 当前订单
 
-`GET https://openapi.xxx.com/api/v1/openOrders`
+`GET https://openapi.xxx.com/sapi/v1/openOrders`
 
 **限速规则: 20次/2s**
 
@@ -1261,22 +1263,22 @@ body
 
 **返回参数**
 
-| 参数名      | 类型   | 示例                 | 描述                                                                                                          |
-| :-----------| :------| :--------------------| :-------------------------------------------------------------------------------------------------------------|
-| orderId     | long   | `150695552109032492` | 订单ID（系统生成）                                                                                            |
-| symbol      | string | `ETHUSDT`            | 币对名称                                                                                                      |
-| price       | float  | `4765.29`            | 订单价格                                                                                                      |
-| origQty     | float  | `1.01`               | 订单数量                                                                                                      |
-| executedQty | float  | `1.01`               | 已经成交订单数量                                                                                              |
-| avgPrice    | float  | `4754.24`            | 订单已经成交的平均价格                                                                                        |
-| type        | string | `LIMIT`              | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                  |
-| time        | long   | `1701243281850`      | 时间戳                                                                                                        |
-| side        | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多）和 `SELL`（卖出做空）                                          |
-| status      | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交）、 |
+| 参数名      | 类型   | 示例                 | 描述                                                                                                        |
+| :-----------| :------| :--------------------| :-----------------------------------------------------------------------------------------------------------|
+| orderId     | long   | `150695552109032492` | 订单ID（系统生成）                                                                                          |
+| symbol      | string | `ETHUSDT`            | 币对名称                                                                                                    |
+| price       | float  | `4765.29`            | 订单价格                                                                                                    |
+| origQty     | float  | `1.01`               | 订单数量                                                                                                    |
+| executedQty | float  | `1.01`               | 已经成交订单数量                                                                                            |
+| avgPrice    | float  | `4754.24`            | 订单已经成交的平均价格                                                                                      |
+| type        | string | `LIMIT`              | 订单类型。可能出现的值只能为：`LIMIT`(限价)和`MARKET`（市价）                                               |
+| time        | long   | `1701243281850`      | 时间戳                                                                                                      |
+| side        | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                         |
+| status      | string | `New Order`          | 订单状态。可能出现的值为：`New Order`(新订单，无成交)、`Partially Filled`（部分成交）、`Filled`（全部成交） |
 
 ### 交易记录
 
-`GET https://openapi.xxx.com/api/v1/myTrades`
+`GET https://openapi.xxx.com/sapi/v1/myTrades`
 
 **限速规则: 20次/2s**
 
@@ -1291,7 +1293,7 @@ body
 > 请求示例
 
 ```http
-GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
+GET https://openapi.xxx.com/sapi/v1/myTrades?symbol=BTCUSDT&limit=100
 ```
 
 **请求参数**
@@ -1299,7 +1301,7 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 | 参数名                            | 类型   | 描述                            |
 | :---------------------------------| :------| :-------------------------------|
 | symbol<font color="red">\*</font> | string | `大写`币对名称，例如：`BTCUSDT` |
-| limit<font color="red">\*</font>  | string | 默认100; 最大1000               |
+| limit<font color="red">\*</font>  | string | 默认：100；最大：1000               |
 
 > 返回示例
 
@@ -1366,11 +1368,11 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 
 ### 安全类型: USER\_DATA
 
-<aside class="notice">账户下方的接口都需要签名和API-key验证</aside>
+<aside class="notice">账户下方的接口都需要签名和API-key验证。</aside>
 
 ### 账户信息
 
-`GET https://openapi.xxx.com/api/v1/account`
+`GET https://openapi.xxx.com/sapi/v1/account`
 
 **限速规则: 20次/2s**
 
@@ -1421,7 +1423,7 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 
 ### 安全类型: None
 
-<aside class="notice">公共下方的接口不需要API-key或者签名就能自由访问</aside>
+<aside class="notice">公共下方的接口不需要API-key或者签名就能自由访问。</aside>
 
 ### 测试连接
 
@@ -1459,7 +1461,7 @@ GET https://openapi.xxx.com/api/v1/myTrades?symbol=BTCUSDT&limit=100
 GET https://futuresopenapi.xxx.com/fapi/v1/contracts
 ```
 
-> 返回参数
+> 返回示例
 
 ```json
 [
@@ -1501,12 +1503,12 @@ GET https://futuresopenapi.xxx.com/fapi/v1/contracts
 **返回参数**
 
 | 参数名          | 类型   | 示例                      | 描述                                                      |
-| :---------------| :------| :-------------------------| :---------------------------------------------------------|
+| :---------------|-:------| :-------------------------| :---------------------------------------------------------|
 | symbol          | string | `E-BTC-USDT`              | `大写`合约名称                                            |
 | pricePrecision  | number | `3`                       | 价格精度                                                  |
-| status          | number | `1`                       | 合约状态（0：`不可交易`，1：`可交易`                      |
-| type            | string | `E`                       | 合约类型 (E：`永续合约`，S：`模拟合约`，其他为`混合合约`) |
-| side            | number | `1`                       | 合约方向 (0：`反向`，1：`正向`)                           |
+| status          | number | `1`                       | 合约状态（0：`不可交易`，1：`可交易`）                      |
+| type            | string | `E`                       | 合约类型（E：`永续合约`，S：`模拟合约`，其他为`混合合约`） |
+| side            | number | `1`                       | 合约方向（0：`反向`，1：`正向`）                           |
 | multiplier      | number | `1.0000000000000000`      | 合约面值                                                  |
 | minOrderVolume  | number | `1`                       | 最小下单量                                                |
 | minOrderMoney   | number | `1.0000000000000000`      | 最小下单金额                                              |
@@ -1536,10 +1538,10 @@ GET https://futuresopenapi.xxx.com/fapi/v1/depth?contractName=E-BTC-USDT&limit=1
 
 **请求参数**
 
-| 参数名       | 类型    | 描述                               |
-| :------------| :-------| :----------------------------------|
-| contractName | string  | `大写`合约名称，例如：`E-BTC-USDT` |
-| limit        | integer | 默认100; 最大100                   |
+| 参数名                                  | 类型    | 描述                               |
+| :---------------------------------------| :-------| :----------------------------------|
+| contractName<font color="red">\*</font> | string  | `大写`合约名称，例如：`E-BTC-USDT` |
+| limit                                   | integer | 默认：100；最大：100               |
 
 > 返回示例
 
@@ -1615,16 +1617,53 @@ GET https://futuresopenapi.xxx.com/fapi/v1/ticker?contractName=E-BTC-USDT
 
 **返回参数**
 
-| 参数名 | 类型   | 示例            | 描述                                    |
-| :------| :------| :---------------| :---------------------------------------|
-| time   | long   | `1595563624731` | 时间戳                                  |
-| high   | float  | `56120.22`      | 最高价                                  |
-| low    | float  | `55982.24`      | 最低价                                  |
-| last   | float  | `55989.93`      | 最新价                                  |
-| vol    | float  | `51.21`         | 交易量                                  |
-| rose   | string | `+0.05`         | 涨跌幅，`+`为涨，`-`为跌，`+0.05`为涨5% |
-| buy    | float  | `55988.10`      | 买一价格                                |
-| sell   | float  | `55990.10`      | 卖一价格                                |
+| 参数名 | 类型   | 示例            | 描述                                      |
+| :------| :------| :---------------| :-----------------------------------------|
+| time   | long   | `1595563624731` | 时间戳                                    |
+| high   | float  | `56120.22`      | 最高价                                    |
+| low    | float  | `55982.24`      | 最低价                                    |
+| last   | float  | `55989.93`      | 最新价                                    |
+| vol    | float  | `51.21`         | 交易量                                    |
+| rose   | string | `+0.05`         | 涨跌幅，`+`为涨，`-`为跌，`+0.05`为涨`5%` |
+| buy    | float  | `55988.10`      | 买一价格                                  |
+| sell   | float  | `55990.10`      | 卖一价格                                  |
+
+### 获取指数/标记价格
+
+`GET` `https://futuresopenapi.xxx.com/fapi/v1/index`
+
+> 请求示例
+
+```http
+GET https://futuresopenapi.xxx.com/fapi/v1/index?contractName=E-BTC-USDT
+```
+
+**请求参数**
+
+| 参数名                                  | 类型   | 描述                               |
+| :---------------------------------------| :------| :----------------------------------|
+| contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT` |
+| limit                                   | string | 默认：100；最大：1000              |
+
+> 返回示例
+
+```json
+{
+    "currentFundRate": -0.0037500000000000,
+    "indexPrice": 27905.9800000000000000,
+    "tagPrice": 27824.4422146875000000,
+    "nextFundRate": -0.0037500000000000
+}
+```
+
+**返回参数**
+
+| 名称            | 类型  | 例子                     | 描述                         |
+| :---------------| :-----| :------------------------| :----------------------------|
+| indexPrice      | float | `27905.9800000000000000` | 指数价格                     |
+| tagPrice        | float | `27824.4422146875000000` | 标记价格                     |
+| nextFundRate    | float | `-0.0037500000000000`    | 资金费率价格                 |
+| currentFundRate | float | `-0.0037500000000000`    | 上期资金费率（用于本期结算） |
 
 ### K线/蜡烛图数据
 
@@ -1638,13 +1677,13 @@ GET https://futuresopenapi.xxx.com/fapi/v1/klines?contractName=E-BTC-USDT&interv
 
 **请求参数**
 
-| 参数名                                  | 类型    | 描述                                                                                                                                     |
-| :---------------------------------------| :-------| :----------------------------------------------------------------------------------------------------------------------------------------|
-| contractName<font color="red">\*</font> | string  | `大写`合约名称，例如：`E-BTC-USDT`                                                                                                       |
-| interval<font color="red">\*</font>     | string  | K线图区间, 可识别的参数值为： `1min`,`5min`,`15min`,`30min`,`1h`,`1day`,`1week`,`1month`（min=分钟，h=小时,day=天，week=星期，month=月） |
-| limit                                   | integer | 默认100; 最大300                                                                                                                         |
-| startTime                               | long    | 开始时间戳                                                                                                                               |
-| endTime                                 | long    | 结束时间戳                                                                                                                               |
+| 参数名                                  | 类型    | 描述                                                                                                                                            |
+| :---------------------------------------| :-------| :-----------------------------------------------------------------------------------------------------------------------------------------------|
+| contractName<font color="red">\*</font> | string  | `大写`合约名称，例如：`E-BTC-USDT`                                                                                                              |
+| interval<font color="red">\*</font>     | string  | K线图区间，可识别的参数值为：`1min`，`5min`，`15min`，`30min`，`1h`，`1day`，`1week`，`1month`（min=分钟，h=小时，day=天，week=星期，month=月） |
+| limit                                   | integer | 默认：100；最大：300                                                                                                                            |
+| startTime                               | long    | 开始时间戳                                                                                                                                      |
+| endTime                                 | long    | 结束时间戳                                                                                                                                      |
 
 > 返回示例
 
@@ -1712,6 +1751,7 @@ GET https://futuresopenapi.xxx.com/fapi/v1/klines?contractName=E-BTC-USDT&interv
 
 ```http
 POST https://futuresopenapi.xxx.com/fapi/v1/order
+
 body
 {
     "contractName": "E-BTC-USDT",
@@ -1730,15 +1770,15 @@ body
 
 | 参数名                                  | 类型   | 描述                                                             |
 | :---------------------------------------| :------| :----------------------------------------------------------------|
-| volume<font color="red">\*</font>       | number | 下单张数，有精度限制，精度由管理员设置, 市价开仓时这里单位是价值 |
-| price                                   | number | 下单价格,限价单时该字段为必传,有精度限制，精度由管理员设置       |
 | contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT`                               |
-| type<font color="red">\*</font>         | string | 订单类型, `LIMIT/MARKET`                                         |
-| side<font color="red">\*</font>         | string | 买卖方向, `BUY/SELL`                                             |
-| open<font color="red">\*</font>         | string | 开平仓方向, `OPEN/CLOSE`                                         |
-| positionType                            | number | 持仓类型, `1:全仓/2:逐仓`                                        |
-| clientOrderId                           | string | 客户端下单标识, 长度小于32位的字符串                             |
+| price                                   | number | 下单价格，限价单时该字段为必传，有精度限制，精度由管理员设置       |
+| volume<font color="red">\*</font>       | number | 下单张数，有精度限制，精度由管理员设置，市价开仓时这里单位是价值 |
+| type<font color="red">\*</font>         | string | 订单类型，`LIMIT/MARKET`                                         |
+| side<font color="red">\*</font>         | string | 买卖方向，`BUY/SELL`                                             |
+| open<font color="red">\*</font>         | string | 开平仓方向，`OPEN/CLOSE`                                         |
+| positionType<font color="red">\*</font> | number | 持仓类型，`1:全仓/2:逐仓`                                        |
 | timeInForce                             | string | `IOC, FOK, POST_ONLY`                                            |
+| clientOrderId                           | string | 客户端下单标识，长度小于32位的字符串                             |
 
 > 返回示例
 
@@ -1770,6 +1810,7 @@ body
 
 ```http
 POST https://futuresopenapi.xxx.com/fapi/v1/conditionOrder
+
 body
 {
     "contractName": "E-BTC-USDT"
@@ -1778,18 +1819,18 @@ body
 
 **请求参数**
 
-| 参数名        | 类型   | 描述                                                             |
-| :-------------| :------| :----------------------------------------------------------------|
-| triggerType   | string | 条件的类型，1：`止损`，2：`止盈`，3：`追涨`，4：`杀跌`           |
-| triggerPrice  | string | 触发价                                                           |
-| clientOrderId | string | 客户端下单标识，长度小于32位的字符串                             |
-| positionType  | number | 持仓类型，1：`全仓`，2：`逐仓`                                   |
-| open          | string | 开平仓方向，`OPEN`/`CLOSE`                                       |
-| side          | string | 买卖方向，`BUY`/`SELL`                                           |
-| type          | string | 订单类型， `LIMIT`/`MARKET`                                      |
-| contractName  | string | `大写`合约名称，例如：`E-BTC-USDT`                               |
-| price         | number | 下单价格，有精度限制，精度由管理员设置                           |
-| volume        | number | 下单数量，市价开仓时这里单位是价值，有精度限制，精度由管理员设置 |
+| 参数名                                  | 类型   | 描述                                                             |
+| :---------------------------------------| :------| :----------------------------------------------------------------|
+| contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT`                               |
+| price<font color="red">\*</font>        | number | 下单价格，有精度限制，精度由管理员设置                           |
+| volume<font color="red">\*</font>       | number | 下单数量，市价开仓时这里单位是价值，有精度限制，精度由管理员设置 |
+| type<font color="red">\*</font>         | string | 订单类型，`LIMIT`/`MARKET`                                      |
+| side<font color="red">\*</font>         | string | 买卖方向，`BUY`/`SELL`                                           |
+| positionType<font color="red">\*</font> | number | 持仓类型，1：`全仓`，2：`逐仓`                                   |
+| open<font color="red">\*</font>         | string | 开平仓方向，`OPEN`/`CLOSE`                                       |
+| triggerType<font color="red">\*</font>  | string | 条件的类型，1：`止损`，2：`止盈`，3：`追涨`，4：`杀跌`           |
+| triggerPrice<font color="red">\*</font> | string | 触发价                                                           |
+| clientOrderId                           | string | 客户端下单标识，长度小于32位的字符串                             |
 
 > 返回示例
 
@@ -1843,6 +1884,36 @@ body
 }
 ```
 
+### 取消条件单
+
+`POST https://futuresopenapi.xxx.com/fapi/v1/cancel_trigger_order`
+
+**限速规则: 20次/2s**
+
+**请求头**
+
+| 参数名                                 | 类型    | 描述        |
+| :--------------------------------------| :-------| :-----------|
+| X-CH-SIGN<font color="red">\*</font>   | string  | 签名        |
+| X-CH-APIKEY<font color="red">\*</font> | string  | 您的API-key |
+| X-CH-TS<font color="red">\*</font>     | integer | 时间戳      |
+
+**请求参数**
+
+| 参数名                                  | 类型   | 描述                               |
+| :---------------------------------------| :------| :----------------------------------|
+| contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT` |
+| orderId<font color="red">\*</font>      | string | 订单ID                             |
+| clientOrderId                           | string | 客户端唯一标识，默认：0            |
+
+> 返回示例
+
+```json
+{
+    "orderId": "256609229205684228"
+}
+```
+
 ### 订单详情
 
 `GET https://futuresopenapi.xxx.com/fapi/v1/order`
@@ -1853,7 +1924,7 @@ body
 | :----------------------------------------| :------| :----------------------------------|
 | contractName<font color="red">\*</font>  | string | `大写`合约名称，例如：`E-BTC-USDT` |
 | orderId<font color="red">\*</font>       | string | 订单ID                             |
-| clientOrderId<font color="red">\*</font> | string | 客户端唯一标识，默认为0            |
+| clientOrderId<font color="red">\*</font> | string | 客户端唯一标识，默认：0            |
 
 > 返回示例
 
@@ -1887,7 +1958,7 @@ body
 | origQty      | float   | `2.0000000000000000`     | 委托数量                                                                                                                                              |
 | executedQty  | float   | `0`                      | 成交数量                                                                                                                                              |
 | avgPrice     | float   | `0`                      | 成交均价                                                                                                                                              |
-| status       | string  | `NEW`                    | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝） |
+| status       | string  | `NEW`                    | 订单状态。可能出现的值为：`NEW`（新订单，无成交）、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝） |
 | side         | string  | `BUY`                    | 订单方向。可能出现的值只能为：`BUY`（买入做多）和`SELL`（卖出做空）                                                                                   |
 | action       | string  | `OPEN`                   | `OPEN/CLOSE`                                                                                                                                          |
 | transactTime | long    | `1704967622000`          | 订单创建时间                                                                                                                                          |
@@ -1899,21 +1970,21 @@ body
 
 `GET https://futuresopenapi.xxx.com/fapi/v1/openOrders`
 
-**限速规则:** **获取当前合约, 该用户的当前委托**
+**限速规则: 20次/2s**
 
 **请求头**
 
-| 参数名      | 类型   | 描述        |
-| :-----------| :------| :-----------|
-| X-CH-SIGN   | string | 签名        |
-| X-CH-APIKEY | string | 您的API-key |
-| X-CH-TS     | string | 时间戳      |
+| 参数名                                 | 类型   | 描述        |
+| :--------------------------------------| :------| :-----------|
+| X-CH-SIGN<font color="red">\*</font>   | string | 签名        |
+| X-CH-APIKEY<font color="red">\*</font> | string | 您的API-key |
+| X-CH-TS<font color="red">\*</font>     | string | 时间戳      |
 
 **请求参数**
 
-| 参数名       | 类型   | 描述                               |
-| :------------| :------| :----------------------------------|
-| contractName | string | `大写`合约名称，例如：`E-BTC-USDT` |
+| 参数名                                  | 类型   | 描述                               |
+| :---------------------------------------| :------| :----------------------------------|
+| contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT` |
 
 > 返回示例
 
@@ -1937,19 +2008,19 @@ body
 
 返回参数
 
-| 参数名       | 类型   | 示例                     | 描述                                                                                                                                                   |
-| :------------| :------| :------------------------| :------------------------------------------------------------------------------------------------------------------------------------------------------|
-| orderId      | long   | `259396989397942275`     | 订单ID（系统生成）                                                                                                                                     |
-| contractName | string | `E-BTC-USDT`             | `大写`合约名称                                                                                                                                         |
-| price        | float  | `72000.0000000000000000` | 订单价格                                                                                                                                               |
-| origQty      | float  | `1.0000000000000000`     | 订单数量                                                                                                                                               |
-| executedQty  | float  | `0.5`                    | 已经成交订单数量                                                                                                                                       |
-| avgPrice     | float  | `71990.0`                | 订单已经成交的平均价格                                                                                                                                 |
-| type         | string | `LIMIT`                  | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                                                           |
-| side         | string | `BUY`                    | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                                  |
-| status       | string | `NEW`                    | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）. |
-| action       | string | `OPEN`                   | `OPEN/CLOSE`                                                                                                                                           |
-| transactTime | long   | `1607702400000`          | 订单创建时间戳                                                                                                                                         |
+| 参数名       | 类型   | 示例                     | 描述                                                                                                                                                    |
+| :------------| :------| :------------------------| :-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| orderId      | long   | `259396989397942275`     | 订单ID（系统生成）                                                                                                                                      |
+| contractName | string | `E-BTC-USDT`             | `大写`合约名称                                                                                                                                          |
+| price        | float  | `72000.0000000000000000` | 订单价格                                                                                                                                                |
+| origQty      | float  | `1.0000000000000000`     | 订单数量                                                                                                                                                |
+| executedQty  | float  | `0.5`                    | 已经成交订单数量                                                                                                                                        |
+| avgPrice     | float  | `71990.0`                | 订单已经成交的平均价格                                                                                                                                  |
+| type         | string | `LIMIT`                  | 订单类型。可能出现的值只能为：`LIMIT`（限价）和`MARKET`（市价）                                                                                         |
+| side         | string | `BUY`                    | 订单方向。可能出现的值只能为：`BUY`（买入做多）和 `SELL`（卖出做空）                                                                                    |
+| status       | string | `NEW`                    | 订单状态。可能出现的值为：`NEW`（新订单，无成交）、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝） |
+| action       | string | `OPEN`                   | `OPEN/CLOSE`                                                                                                                                            |
+| transactTime | long   | `1607702400000`          | 订单创建时间戳                                                                                                                                          |
 
 ### 历史委托
 
@@ -1957,19 +2028,19 @@ body
 
 **请求头**
 
-| 参数名      | 类型   | 描述        |
-| :-----------| :------| :-----------|
-| X-CH-SIGN   | string | 签名        |
-| X-CH-APIKEY | string | 您的API-key |
-| X-CH-TS     | string | 时间戳      |
+| 参数名                                 | 类型   | 描述        |
+| :--------------------------------------| :------| :-----------|
+| X-CH-SIGN<font color="red">\*</font>   | string | 签名        |
+| X-CH-APIKEY<font color="red">\*</font> | string | 您的API-key |
+| X-CH-TS<font color="red">\*</font>     | string | 时间戳      |
 
 **请求参数**
 
-| 参数名       | 类型   | 描述                               |
-| :------------| :------| :----------------------------------|
-| contractName | string | `大写`合约名称，例如：`E-BTC-USDT` |
-| limit        | string | 分页条数, 默认100; 最大1000        |
-| fromId       | long   | 从这条记录开始检索                 |
+| 参数名                                  | 类型   | 描述                               |
+| :---------------------------------------| :------| :----------------------------------|
+| contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT` |
+| limit                                   | string | 分页条数，默认：100；最大：1000    |
+| fromId                                  | long   | 从这条记录开始检索                 |
 
 > 返回示例
 
@@ -2011,19 +2082,19 @@ body
 
 **请求头**
 
-| 参数名      | 类型   | 描述        |
-| :-----------| :------| :-----------|
-| X-CH-SIGN   | string | 签名        |
-| X-CH-APIKEY | string | 您的API-key |
-| X-CH-TS     | string | 时间戳      |
+| 参数名                                 | 类型   | 描述        |
+| :--------------------------------------| :------| :-----------|
+| X-CH-SIGN<font color="red">\*</font>   | string | 签名        |
+| X-CH-APIKEY<font color="red">\*</font> | string | 您的API-key |
+| X-CH-TS<font color="red">\*</font>     | string | 时间戳      |
 
 **请求参数**
 
-| 参数名       | 类型   | 描述                               |
-| :------------| :------| :----------------------------------|
-| contractName | string | `大写`合约名称，例如：`E-BTC-USDT` |
-| limit        | string | 分页条数, 默认100; 最大1000        |
-| fromId       | long   | 从这条记录开始检索                 |
+| 参数名                                  | 类型   | 描述                               |
+| :---------------------------------------| :------| :----------------------------------|
+| contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT` |
+| limit                                   | string | 分页条数，默认：100；最大：1000    |
+| fromId                                  | long   | 从这条记录开始检索                 |
 
 > 返回示例
 
@@ -2061,18 +2132,18 @@ body
 
 **请求头**
 
-| 参数名      | 类型    | 描述        |
-| :-----------| :-------| :-----------|
-| X-CH-SIGN   | string  | 签名        |
-| X-CH-APIKEY | string  | 您的API-key |
-| X-CH-TS     | integer | 时间戳      |
+| 参数名                                 | 类型    | 描述        |
+| :--------------------------------------| :-------| :-----------|
+| X-CH-SIGN<font color="red">\*</font>   | string  | 签名        |
+| X-CH-APIKEY<font color="red">\*</font> | string  | 您的API-key |
+| X-CH-TS<font color="red">\*</font>     | integer | 时间戳      |
 
 **请求参数**
 
 | 参数名                                  | 类型   | 描述                               |
 | :---------------------------------------| :------| :----------------------------------|
 | contractName<font color="red">\*</font> | string | `大写`合约名称，例如：`E-BTC-USDT` |
-| limit                                   | string | 分页条数, 默认100; 最大1000        |
+| limit                                   | string | 分页条数，默认：100；最大：1000    |
 | fromId                                  | long   | 从这个tradeId开始检索              |
 
 > 返回示例
@@ -2207,29 +2278,29 @@ body
 
 ## 概述
 
-WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服务器全双工通信， 使得数据可以快速地双向传播。通过一次简单的握手就可以建立客户端和服务器连接， 服务器根据业务规则可以主动推送信息给客户端。其优点如下：
+WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服务器全双工通信，使得数据可以快速地双向传播。通过一次简单的握手就可以建立客户端和服务器连接，服务器根据业务规则可以主动推送信息给客户端。其优点如下：
 
-*   客户端和服务器进行数据传输时，请求头信息比较小，大概2个字节
-*   客户端和服务器皆可以主动地发送数据给对方
-*   不需要多次创建TCP请求和销毁，节约宽带和服务器的资源
+*   客户端和服务器进行数据传输时，请求头信息比较小，大概2个字节。
+*   客户端和服务器皆可以主动地发送数据给对方。
+*   不需要多次创建TCP请求和销毁，节约宽带和服务器的资源。
 
-<aside class="notice">强烈建议开发者使用WebSocket API获取市场行情和买卖深度等信息</aside>
+<aside class="notice">强烈建议开发者使用WebSocket API获取市场行情和买卖深度等信息。</aside>
 
 ## 基本信息
 
-*   币币行情基础站点：<wss://wspool.xxx.yyy/kline-api/ws>
-*   合约行情基础站点:：<wss://futuresws.xxx.yyy/kline-api/ws>，其中xxx.yyy替换成交易所的主域
-*   返回数据除了心跳数据都会二进制压缩(用户需要通过Gzip算法进行解压)
+*   币币行情基础站点：<wss://wspool.xxx.yyy/kline-api/ws>。
+*   合约行情基础站点：<wss://futuresws.xxx.yyy/kline-api/ws>，其中xxx.yyy替换成交易所的主域。
+*   返回数据除了心跳数据都会二进制压缩（用户需要通过Gzip算法进行解压）。
 
 ### 心跳
 
 为了保持连接有效且稳定，建议您进行以下操作：
 
-1. 每次接收到消息后，用户设置一个定时器，定时N秒，N 小于30
+1. 每次接收到消息后，用户设置一个定时器，定时N秒，N小于30。
 
-2. 如果定时器被触发（N 秒内没有收到新消息），发送字符串 'ping'
+2. 如果定时器被触发（N秒内没有收到新消息），发送字符串'ping'。
 
-3. 期待一个文字字符串'pong'作为回应。如果在 N秒内未收到，请发出错误或重新连接
+3. 期待一个文字字符串'pong'作为回应。如果在N秒内未收到，请发出错误或重新连接。
 
 > 心跳返回
 
@@ -2269,7 +2340,7 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 {
     "event": "sub",
     "params": {
-        "channel": "market_$symbol_depth_step0", // $symbolE.g.币币: btcusdt合约: e_btcusdt
+        "channel": "market_$symbol_depth_step0", // $symbol E.g. 币币：btcusdt 合约：e_btcusdt
         "cb_id": "1" // 业务id非必填
     }
 }
@@ -2322,7 +2393,7 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 {
     "event": "sub",
     "params": {
-        "channel": "market_$symbol_trade_ticker", // $symbolE.g.币币: btcusdt合约: e_btcusdt
+        "channel": "market_$symbol_trade_ticker", // $symbol E.g. 币币: btcusdt，合约: e_btcusdt
         "cb_id": "1" // 业务id非必填
     }
 }
@@ -2339,7 +2410,7 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
         "ts": 1506584998239, // data中最大时间
         "data": [
             {
-                "side": "buy", // 买卖方向buy, sell
+                "side": "buy", // 买卖方向buy，sell
                 "price": 32.233, // 单价
                 "vol": 232, // 数量
                 "amount": 323, // 总额
@@ -2357,7 +2428,7 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 {
     "event": "sub",
     "params": {
-        "channel": "market_$symbol_kline_[1min/5min/15min/30min/60min/1day/1week/1month]", // $symbolE.g.btcusdt
+        "channel": "market_$symbol_kline_[1min/5min/15min/30min/60min/1day/1week/1month]", // $symbol E.g. btcusdt
         "cb_id": "1" // 业务id非必填
     }
 }
@@ -2388,7 +2459,7 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 {
     "event": "sub",
     "params": {
-        "channel": "market_$symbol_ticker", // $symbolE.g.币币: btcusdt合约: e_btcusdt
+        "channel": "market_$symbol_ticker", // $symbol E.g. 币币：btcusdt 合约：e_btcusdt
         "cb_id": "1" // 业务id非必填
     }
 }
@@ -2467,7 +2538,7 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 {
     "event": "req",
     "params": {
-        "channel": "market_$symbol_trade_ticker", // $symbolE.g.币币: btcusdt合约: e_btcusdt
+        "channel": "market_$symbol_trade_ticker", // $symbol E.g. 币币：btcusdt 合约：e_btcusdt
         "cb_id": "1" // 业务id非必填
     }
 }
@@ -2484,13 +2555,13 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
     "status": "ok",
     "data": [
         {
-            "side": "buy", // 买卖方向buy, sell
+            "side": "buy", // 买卖方向buy，sell
             "price": 32.233, // 单价
             "vol": 232, // 数量
             "amount": 323 // 总额
         },
         {
-            "side": "buy", // 买卖方向buy, sell
+            "side": "buy", // 买卖方向buy，sell
             "price": 32.233, // 单价
             "vol": 232, // 数量
             "amount": 323 // 总额
@@ -2675,11 +2746,11 @@ if (error) throw new Error(error);
 
 ## 请求接口的timestamp参数和到达服务器时间最大差值是多少？
 
-服务器收到请求时会判断请求中的时间戳，如果是5000毫秒之前发出的，则请求会被认为无效。这个时间窗口值可以通过发送可选参数`recvWindow`来自定义
+服务器收到请求时会判断请求中的时间戳，如果是5000毫秒之前发出的，则请求会被认为无效。这个时间窗口值可以通过发送可选参数`recvWindow`来自定义。
 
 ## 请求头"X-CH-TS"不能为空，如何解决？
 
-首先建议用户打印一下`X-CH-TS`，出现异常时检查`X-CH-TS`是否为空，另外建议用户代码优化，每次请求前先判断`X-CH-TS`是否为空
+首先建议用户打印一下`X-CH-TS`，出现异常时检查`X-CH-TS`是否为空，另外建议用户对代码优化，每次请求前先判断`X-CH-TS`是否为空。
 
 ## 为什么签名认证总返回无效的签名？
 
@@ -2699,37 +2770,37 @@ X-CH-SIGN: ssseLeefrffraoEQ3yI9qEtI1CZ82ikZ4xSG5Kj8gnl3uw=
 X-CH-TS: 1574327555669
 ```
 
-*   是否在程序中正确的配置了API-key
+*   是否在程序中正确的配置了API-key。
 
-*   签名前字符串是否符合标准格式, 所有要素的顺序要保持一致. 可以复制如下示例跟您的签名前字符串进行比对：
+*   签名前字符串是否符合标准格式，所有要素的顺序要保持一致。可以复制如下示例跟您的签名前字符串进行比对：
 
 > GET示例
 
 ```http
-1588591856950GET/api/v1/account
+1588591856950GET/sapi/v1/account
 ```
 
 > POST示例
 
 ```http
-1588591856950POST/api/v1/order/test{"symbol":"BTCUSDT","price":"9300","volume":"1","side":"BUY","type":"LIMIT"}
+1588591856950POST/sapi/v1/order/test{"symbol":"BTCUSDT","price":"9300","volume":"1","side":"BUY","type":"LIMIT"}
 ```
 
-## 调用接口提示ILLEGAL\_CONTENT\_TYPE(-1017),是什么原因？
+## 调用接口提示ILLEGAL\_CONTENT\_TYPE(-1017)，是什么原因？
 
-我们建议在所有的请求头附加Content-Type, 并设置成application/json
+我们建议在所有的请求头附加Content-Type，并设置成application/json。
 
 ## API每秒调用频率有限制吗？
 
-有限制，具体可以看下文档中每个接口的访问频率限制
+有限制，具体可以看下文档中每个接口的访问频率限制。
 
 ## API的访问频率是根据什么限制的？
 
-个人数据是根据**API-key**限制的，公共数据是根据**ip**限制，需要注意的是，若用户请求公共数据时传入有效的个人信息就根据**API-key**限制
+个人数据是根据**API-key**限制的，公共数据是根据**ip**限制，需要注意的是，若用户请求公共数据时传入有效的个人信息就根据**API-key**限制。
 
-## HTTP状态码429是怎样造成的?
+## HTTP状态码429是怎样造成的？
 
-请求接口超过访问频率限制，建议降低访问频率
+请求接口超过访问频率限制，建议降低访问频率。
 
 ## API调用接口报超过访问频率会被封IP吗？封多久？
 
@@ -2737,31 +2808,31 @@ X-CH-TS: 1574327555669
 
 ## 为什么WebSocker出现了断开连接？
 
-*   未添加心跳，WebSocket连接需客户端需要回pong，保证连接的稳定
-*   网络原因造成客户端发送的pong消息，但服务端并未接收到，或其他网络原因也会导致自动断开连接
-*   建议用户做好WebSocket断开重连机制，在确保心跳（ping/pong）连接意外断开时，程序能够自动重新进行连接
+*   未添加心跳，WebSocket连接需客户端需要回pong，保证连接的稳定。
+*   网络原因造成客户端发送的pong消息，但服务端并未接收到，或其他网络原因也会导致自动断开连接。
+*   建议用户做好WebSocket断开重连机制，在确保心跳（ping/pong）连接意外断开时，程序能够自动重新进行连接。
 
 ## 用户请求接口报错Time Out？
 
-网络无法连接服务器，建议您检查下网络是否通畅
+网络无法连接服务器，建议您检查下网络是否通畅。
 
 ## 如何拿到平台所有的币对
 
-现货交易中的/api/v1/symbols接口可以拿到
+现货交易中的/sapi/v1/symbols接口可以拿到。
 
-## 批量下单/撤单有条数限制吗?
+## 批量下单/撤单有条数限制吗？
 
-是的。批量接口会限制10条订单
+是的。批量接口会限制10条订单。
 
 ## newClientOrderId是什么, 有什么作用?
 
-* newClientOrderId是您自定义的订单号，可以用来标识您的一笔订单，当下单完成后，可以使用newClientOrderId并调用`订单信息`接口，查看订单状态
-* 用户需要自己保证此ID不重复，我方不会进行重复检测，如有重复，撤单和查询订单时只能撤销或者查询其中最新的一条数据
+* newClientOrderId是您自定义的订单号，可以用来标识您的一笔订单，当下单完成后，可以使用newClientOrderId并调用`订单信息`接口，查看订单状态。
+* 用户需要自己保证此ID不重复，我方不会进行重复检测，如有重复，撤单和查询订单时只能撤销或者查询其中最新的一条数据。
 
-## 如何获取最新成交价格?
+## 如何获取最新成交价格？
 
-可以通过获取Ticker信息, 返回结果中的last就是最新成交价
+可以通过获取Ticker信息，返回结果中的last就是最新成交价。
 
 ## Ticker接口中的24小时成交量会出现负增长吗？
 
-会的。因为24小时成交量，为24小时滚动数据（平移窗口大小24小时），有可能会出现后一个窗口内的累计成交量、累计成交额小于前一窗口的情况
+会的。因为24小时成交量，为24小时滚动数据（平移窗口大小24小时），有可能会出现后一个窗口内的累计成交量、累计成交额小于前一窗口的情况。
