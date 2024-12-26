@@ -2262,8 +2262,8 @@ Websocket is a new HTML5 Protocol. It achieves full-duplex data transmission bet
 
 ## Ws Information
 
-* Basic spot market data site: <wss://wspool.hiotc.pro/kline-api/ws>
-* Basic futures market data site: <wss://wspool.xxx.yyy/kline-api/ws>, Replace xxx.xxx with the exchange's main domain.
+* Basic spot market data site: <wss://ws.xxx.yyy/kline-api/ws>, Replace xxx.yyy with the exchange's main domain.
+* Basic futures market data site: <wss://futuresws.xxx.yyy/kline-api/ws>, Replace xxx.yyy with the exchange's main domain.
 * The returned data will be binary compressed except the heartbeat data (the user needs to decompress through Gzip algorithm).
 
 ### Heartbeat
@@ -2547,6 +2547,8 @@ To maintain a valid and stable connection, it is recommended to perform the foll
 # Official SDK
 
 ## Example of signature
+
+### Java
 
 ```java
 /**

@@ -2264,8 +2264,8 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 
 ## 基本信息
 
-*   币币行情基础站点：<wss://wspool.xxx.yyy/kline-api/ws>。
-*   合约行情基础站点：<wss://futuresws.xxx.yyy/kline-api/ws>，其中xxx.yyy替换成交易所的主域。
+*   币币行情基础站点：<wss://ws.xxx.yyy/kline-api/ws>，将其中xxx.yyy替换成交易所的主域。
+*   合约行情基础站点：<wss://futuresws.xxx.yyy/kline-api/ws>，将其中xxx.yyy替换成交易所的主域。
 *   返回数据除了心跳数据都会二进制压缩（用户需要通过Gzip算法进行解压）。
 
 ### 心跳
@@ -2548,6 +2548,8 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 
 ## 签名示例
 
+### Java
+
 ```java
 /**
  * 生成sign
@@ -2595,7 +2597,7 @@ private String queryString(ServerHttpRequest request) {
 
 ```
 
-## 创建订单样例
+## 创建订单示例
 
 ### Java
 
