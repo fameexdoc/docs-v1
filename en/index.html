@@ -742,12 +742,17 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#example-of-signature" class="toc-h2 toc-link" data-title="Example of signature">Example of signature</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#java" class="toc-h3 toc-link" data-title="Java">Java</a>
+                          </li>
+                      </ul>
                   </li>
                   <li>
                     <a href="#example-of-create-order" class="toc-h2 toc-link" data-title="Example of create order">Example of create order</a>
                       <ul class="toc-list-h3">
                           <li>
-                            <a href="#java" class="toc-h3 toc-link" data-title="Java">Java</a>
+                            <a href="#java-2" class="toc-h3 toc-link" data-title="Java">Java</a>
                           </li>
                           <li>
                             <a href="#go" class="toc-h3 toc-link" data-title="Go">Go</a>
@@ -5009,7 +5014,7 @@ body
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='official-sdk'>Official SDK</h1><h2 id='example-of-signature'>Example of signature</h2><div class="highlight"><pre class="highlight java tab-java"><code><span class="cm">/**
+</span></code></pre></div><h1 id='official-sdk'>Official SDK</h1><h2 id='example-of-signature'>Example of signature</h2><h3 id='java'>Java</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="cm">/**
  * Generate sign
  **/</span>
 <span class="kd">private</span> <span class="nc">String</span> <span class="nf">toSign</span><span class="o">(</span><span class="nc">String</span> <span class="n">timestamp</span><span class="o">,</span> <span class="nc">String</span> <span class="n">method</span><span class="o">,</span> <span class="nc">String</span> <span class="n">requestPath</span><span class="o">,</span>
@@ -5053,7 +5058,7 @@ body
     <span class="k">return</span> <span class="n">queryString</span><span class="o">;</span>
 <span class="o">}</span>
 
-</code></pre></div><h2 id='example-of-create-order'>Example of create order</h2><h3 id='java'>Java</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
+</code></pre></div><h2 id='example-of-create-order'>Example of create order</h2><h3 id='java-2'>Java</h3><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">()</span>
 <span class="o">.</span><span class="na">build</span><span class="o">();</span>
 <span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
 <span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\"symbol\":\"BTCUSDT\",\"volume\":1,\"side\":\"BUY\",\"type\":\"LIMIT\",\"price\":10000,\"newClientOrderId\":\"\",\"recvWindow\":5000}"</span><span class="o">);</span>
