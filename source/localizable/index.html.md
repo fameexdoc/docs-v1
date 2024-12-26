@@ -19,9 +19,6 @@ toc_footers:
 
 includes:
     - doc
-    - return
-    - enum
-    - spot
 
 meta:
   - name: FameEX OpenAPI Docs
