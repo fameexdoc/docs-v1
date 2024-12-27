@@ -1,6 +1,9 @@
 ---
 title: t(:title)
 
+current: t(:current)
+next: t(:next)
+
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
   - http: HTTP
   - shell: SHELL

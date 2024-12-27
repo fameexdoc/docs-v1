@@ -28,6 +28,8 @@ Internationalization (i18n) support.
 <%
   t_reg = /t\(([^\)]+)\)/
   current_page.data.title = current_page.data.title.gsub(t_reg){|t| eval(t)}
+  current_page.data.current = current_page.data.current.gsub(t_reg){|t| eval(t)}
+  current_page.data.next = current_page.data.next.gsub(t_reg){|t| eval(t)}
   page_content = page_content.gsub(t_reg){|t| eval(t)}
 %>
 
@@ -72,7 +74,21 @@ Internationalization (i18n) support.
     </script>
     <% end %>
   </head>
-
+  <header class="fixed-header">
+    <span class="header-logo-wrapper">
+      <%= image_tag('logo.svg') %>
+    </span>
+    <% if current_page.data.current == "Chinese" %>
+    <span class="header-button-wrapper">
+      <a href="/docs-v1/en/index.html" class="header-button"><%= current_page.data.next %></a>
+    </span>
+    <% end %>
+    <% if current_page.data.current == "English" %>
+    <span class="header-button-wrapper">
+      <a href="/docs-v1/zh/index.html" class="header-button"><%= current_page.data.next %></a>
+    </span>
+    <% end %>
+  </header>      
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
     <a href="#" id="nav-button">
       <span>
